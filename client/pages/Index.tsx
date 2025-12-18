@@ -1,0 +1,493 @@
+import { Layout } from "@/components/Layout";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle2, Home, Building2, Wrench, Users } from "lucide-react";
+import {
+  fadeInUp,
+  slideInUp,
+  staggerContainer,
+} from "@/lib/animations";
+
+export default function HomePage() {
+  return (
+    <Layout>
+      {/* Hero Section - Company Profile */}
+      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white overflow-hidden flex items-center">
+        {/* Background image overlay */}
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage:
+              "url('/landing page')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+
+        {/* Animated background shapes */}
+        <motion.div
+          className="absolute top-0 right-0 w-96 h-96 bg-red-600 rounded-full opacity-10"
+          animate={{ y: [0, 30, 0] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-0 w-96 h-96 bg-red-600 rounded-full opacity-10"
+          animate={{ y: [0, -30, 0] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-32">
+          <motion.div
+            className="text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h1
+              className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+              variants={fadeInUp}
+              initial="initial"
+              animate="animate"
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Home Sniper Real Estate
+            </motion.h1>
+            <motion.p
+              className="text-xl md:text-2xl text-gray-200 mb-8"
+              variants={fadeInUp}
+              initial="initial"
+              animate="animate"
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              A leading real estate management company with a strong presence in
+              Abu Dhabi, Al Ain, and Dubai, United Arab Emirates.
+            </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+            >
+              <motion.div variants={fadeInUp}>
+                <Link
+                  to="/properties"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors shadow-lg uppercase tracking-wider"
+                >
+                  Browse Properties
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </motion.div>
+              <motion.div variants={fadeInUp}>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-gray-900 transition-colors uppercase tracking-wider"
+                >
+                  Contact Us
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                About <span className="text-red-600">Us</span>
+              </h2>
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                <span className="font-bold text-red-600">Home Sniper Real Estate Gen. Cont. Sole Proprietorship L.L.C</span> is a
+                leading real estate management company with a strong presence in
+                Abu Dhabi, Al Ain, and Dubai, in United Arab Emirates. We
+                specialize in managing our own extensive portfolio of properties
+                across these regions, while also offering comprehensive
+                management services to other property owners.
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Our team of dedicated professionals combines market expertise with
+                personalized service to ensure every client receives exceptional
+                care and attention.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=500&fit=crop"
+                alt="Modern real estate"
+                className="rounded-lg shadow-xl"
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Chairman's Message */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F46d78cab553746bf8807f6802c04725c%2F3b563ba70efa48dc8591724dcafcd2be?format=webp&width=800"
+                alt="Chairman - HE. Nehayan Hamad Balrakkad Al Ameri"
+                className="rounded-lg shadow-xl w-full h-auto object-cover"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Chairman's <span className="text-red-600">Message</span>
+              </h2>
+              <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
+                <p>
+                  As the owner of Home Sniper Real Estate, I am proud to lead our organization towards delivering exceptional real estate management and leasing services. With a diverse portfolio spanning Abu Dhabi, Al Ain, and Dubai, we have built a reputation for excellence and reliability.
+                </p>
+                <p>
+                  Our mission is not merely to manage properties, but to create lasting partnerships with our clients. We believe in transparency, professionalism, and a deep commitment to understanding each client's unique needs. Every property we manage is treated with the same care and attention we would give our own.
+                </p>
+                <p>
+                  We remain steadfast in our dedication to setting the highest standards in the real estate industry across the UAE.
+                </p>
+              </div>
+              <p className="mt-8 font-bold text-gray-900">
+                HE. Nehayan Hamad Balrakkad Al Ameri
+              </p>
+              <p className="text-gray-600 text-sm">
+                Founder & Chairman
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Mission & <span className="text-red-600">Vision</span>
+          </motion.h2>
+
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+            initial={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+          >
+            {/* Mission */}
+            <motion.div
+              className="bg-red-600 text-white p-8 md:p-10 rounded-lg shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+              whileHover={{ y: -8 }}
+            >
+              <h3 className="text-3xl font-bold mb-4">Our Mission</h3>
+              <p className="text-lg leading-relaxed">
+                At Home Sniper Real Estates, our mission is to deliver exceptional real estate management and leasing services that exceed our clients' expectations. We are committed to building long-term relationships, ensuring properties are managed with care and expertise, and providing tailored solutions to meet unique needs.
+              </p>
+            </motion.div>
+
+            {/* Vision */}
+            <motion.div
+              className="bg-gray-900 text-white p-8 md:p-10 rounded-lg shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+              whileHover={{ y: -8 }}
+            >
+              <h3 className="text-3xl font-bold mb-4">Our Vision</h3>
+              <p className="text-lg leading-relaxed">
+                Our vision is to be the leading real estate management and leasing company in the UAE, renowned for our professionalism, integrity, and customer-centric approach. We strive to maintain the highest standards of service, ensuring our clients' properties are managed with precision and care.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services We Offer */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Service <span className="text-red-600">We Offer</span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            initial={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+          >
+            {[
+              {
+                icon: Home,
+                title: "Property Leasing",
+                desc: "We offer a diverse portfolio of properties for lease, carefully curated to meet the needs of our tenants.",
+              },
+              {
+                icon: Building2,
+                title: "Property Management",
+                desc: "Our experienced team handles all aspects of property management, ensuring properties are well-maintained and running smoothly.",
+              },
+              {
+                icon: Wrench,
+                title: "Maintenance Services",
+                desc: "Our dedicated maintenance team is available 24/7 to address any issues or concerns.",
+              },
+              {
+                icon: Users,
+                title: "Tenant Support",
+                desc: "We provide personalized support to our tenants, ensuring their needs are met and exceeded.",
+              },
+            ].map((service, idx) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  className="bg-white p-6 rounded-lg shadow-md"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+                  whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+                >
+                  <motion.div
+                    className="mb-4"
+                    whileHover={{ rotate: 10, scale: 1.1 }}
+                  >
+                    <Icon className="w-12 h-12 text-red-600" />
+                  </motion.div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm">{service.desc}</p>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Benefits of Leasing */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Benefits of <span className="text-red-600">Leasing with Us</span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            initial={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+          >
+            {[
+              "Leasing directly with owner without an intermediate",
+              "Hassle-free experience",
+              "Well-maintained properties",
+              "Responsive maintenance team",
+              "Personalized support",
+            ].map((benefit, idx) => (
+              <motion.div
+                key={idx}
+                className="flex items-start gap-4 p-4"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+              >
+                <CheckCircle2 className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
+                <p className="text-lg text-gray-700 font-medium">{benefit}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-900 to-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              Why <span className="text-red-600">Choose Us</span>?
+            </h2>
+            <motion.p
+              className="text-xl text-gray-300 max-w-2xl mx-auto mb-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Experience unparalleled comfort in your second home with us. By leasing directly from the owner, you eliminate intermediaries and enjoy:
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+            initial={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+          >
+            {[
+              {
+                title: "Full-fledged Services",
+                desc: "Comprehensive property management services covering all aspects of leasing and maintenance.",
+              },
+              {
+                title: "Enhanced Security",
+                desc: "Top-notch security measures to protect your property and ensure peace of mind.",
+              },
+              {
+                title: "24/7 Maintenance Team",
+                desc: "Our dedicated maintenance team is available around the clock to address any concerns.",
+              },
+              {
+                title: "Clean and Calm Atmosphere",
+                desc: "Our commitment to delivering exceptional living experiences makes us the perfect choice for your home away from home.",
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                className="bg-gray-800 p-6 rounded-lg border border-red-600"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+                whileHover={{ y: -8 }}
+              >
+                <h3 className="text-xl font-bold text-red-600 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-gray-300">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-lg text-gray-300">
+              Our commitment to delivering exceptional living experiences makes us the perfect choice for your home away from home.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24 bg-red-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Ready to Find Your Perfect Property?
+          </motion.h2>
+          <motion.p
+            className="text-lg text-gray-100 mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Explore our comprehensive portfolio of properties and experience
+            exceptional management services.
+          </motion.p>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <motion.div variants={slideInUp}>
+              <Link
+                to="/properties"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-red-600 font-bold rounded-lg hover:bg-gray-100 transition-colors uppercase tracking-wider"
+              >
+                Browse Properties
+              </Link>
+            </motion.div>
+            <motion.div variants={slideInUp}>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-red-600 transition-colors uppercase tracking-wider"
+              >
+                Contact Us
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+    </Layout>
+  );
+}
