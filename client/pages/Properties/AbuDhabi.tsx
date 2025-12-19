@@ -1,63 +1,19 @@
 import { Layout } from "@/components/Layout";
 import { MapPin } from "lucide-react";
+import abuDhabiProperties from "@/data/abu-dhabi-properties.json";
 
 export default function AbuDhabiProperties() {
-  const properties = [
-    {
-      id: 1,
-      title: "Luxurious Villa in Abu Dhabi",
-      price: "AED 400,000/year",
-      image:
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&h=400&fit=crop",
-      beds: 4,
-      baths: 3,
-      size: "3,500 sqft",
-      area: "Al Manara",
-    },
-    {
-      id: 2,
-      title: "Premium Penthouse - Abu Dhabi",
-      price: "AED 550,000/year",
-      image:
-        "https://images.unsplash.com/photo-1600121468171-7bcad7bf8b46?w=500&h=400&fit=crop",
-      beds: 3,
-      baths: 3,
-      size: "2,200 sqft",
-      area: "Saadiyat Island",
-    },
-    {
-      id: 3,
-      title: "Modern Apartment in Corniche",
-      price: "AED 280,000/year",
-      image:
-        "https://images.unsplash.com/photo-1512453150886-d6a135e9ca15?w=500&h=400&fit=crop",
-      beds: 2,
-      baths: 2,
-      size: "1,400 sqft",
-      area: "Abu Dhabi Corniche",
-    },
-    {
-      id: 4,
-      title: "Spacious Family Villa",
-      price: "AED 450,000/year",
-      image:
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&h=400&fit=crop",
-      beds: 4,
-      baths: 2,
-      size: "2,800 sqft",
-      area: "Al Reef",
-    },
-  ];
+  const properties = abuDhabiProperties;
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-red-600 to-black text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Properties in Abu Dhabi
           </h1>
-          <p className="text-lg text-blue-100">
+          <p className="text-lg text-gray-100">
             Discover luxury residences in the capital city
           </p>
         </div>
@@ -99,11 +55,11 @@ export default function AbuDhabiProperties() {
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div className="text-xl font-bold text-blue-600">
+                    <div className="text-xl font-bold text-red-600">
                       {property.price}
                     </div>
                   </div>
-                  <button className="w-full mt-4 px-4 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition-colors">
+                  <button className="w-full mt-4 px-4 py-2 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition-colors">
                     View Details
                   </button>
                 </div>

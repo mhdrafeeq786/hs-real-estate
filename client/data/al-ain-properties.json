@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Contemporary Apartment in Al Ain",
+    "price": "AED 120,000/year",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&h=400&fit=crop",
+    "beds": 2,
+    "baths": 1,
+    "size": "950 sqft",
+    "area": "Central Al Ain"
+  },
+  {
+    "id": 2,
+    "title": "Cozy Studio in Al Ain",
+    "price": "AED 60,000/year",
+    "image": "https://images.unsplash.com/photo-1600576621521-40ca62278f1a?w=500&h=400&fit=crop",
+    "beds": 1,
+    "baths": 1,
+    "size": "500 sqft",
+    "area": "Al Ain City"
+  },
+  {
+    "id": 3,
+    "title": "Family Apartment with Garden",
+    "price": "AED 150,000/year",
+    "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&h=400&fit=crop",
+    "beds": 3,
+    "baths": 2,
+    "size": "1,400 sqft",
+    "area": "Al Foah"
+  },
+  {
+    "id": 4,
+    "title": "Spacious Villa with Yard",
+    "price": "AED 250,000/year",
+    "image": "https://images.unsplash.com/photo-1600121468171-7bcad7bf8b46?w=500&h=400&fit=crop",
+    "beds": 3,
+    "baths": 2,
+    "size": "2,000 sqft",
+    "area": "Zakher"
+  }
+]

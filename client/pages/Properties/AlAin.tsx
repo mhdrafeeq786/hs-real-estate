@@ -1,63 +1,19 @@
 import { Layout } from "@/components/Layout";
 import { MapPin } from "lucide-react";
+import alAinProperties from "@/data/al-ain-properties.json";
 
 export default function AlAinProperties() {
-  const properties = [
-    {
-      id: 1,
-      title: "Contemporary Apartment in Al Ain",
-      price: "AED 120,000/year",
-      image:
-        "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&h=400&fit=crop",
-      beds: 2,
-      baths: 1,
-      size: "950 sqft",
-      area: "Central Al Ain",
-    },
-    {
-      id: 2,
-      title: "Cozy Studio in Al Ain",
-      price: "AED 60,000/year",
-      image:
-        "https://images.unsplash.com/photo-1600576621521-40ca62278f1a?w=500&h=400&fit=crop",
-      beds: 1,
-      baths: 1,
-      size: "500 sqft",
-      area: "Al Ain City",
-    },
-    {
-      id: 3,
-      title: "Family Apartment with Garden",
-      price: "AED 150,000/year",
-      image:
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&h=400&fit=crop",
-      beds: 3,
-      baths: 2,
-      size: "1,400 sqft",
-      area: "Al Foah",
-    },
-    {
-      id: 4,
-      title: "Spacious Villa with Yard",
-      price: "AED 250,000/year",
-      image:
-        "https://images.unsplash.com/photo-1600121468171-7bcad7bf8b46?w=500&h=400&fit=crop",
-      beds: 3,
-      baths: 2,
-      size: "2,000 sqft",
-      area: "Zakher",
-    },
-  ];
+  const properties = alAinProperties;
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-red-600 to-black text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Properties in Al Ain
           </h1>
-          <p className="text-lg text-blue-100">
+          <p className="text-lg text-gray-100">
             Find quality properties in the beautiful garden city
           </p>
         </div>
@@ -99,11 +55,11 @@ export default function AlAinProperties() {
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div className="text-xl font-bold text-blue-600">
+                    <div className="text-xl font-bold text-red-600">
                       {property.price}
                     </div>
                   </div>
-                  <button className="w-full mt-4 px-4 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition-colors">
+                  <button className="w-full mt-4 px-4 py-2 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition-colors">
                     View Details
                   </button>
                 </div>

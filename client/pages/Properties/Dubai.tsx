@@ -1,63 +1,19 @@
 import { Layout } from "@/components/Layout";
 import { MapPin } from "lucide-react";
+import dubaiProperties from "@/data/dubai-properties.json";
 
 export default function DubaiProperties() {
-  const properties = [
-    {
-      id: 1,
-      title: "Modern Apartment in Downtown Dubai",
-      price: "AED 250,000/year",
-      image:
-        "https://images.unsplash.com/photo-1512453150886-d6a135e9ca15?w=500&h=400&fit=crop",
-      beds: 2,
-      baths: 2,
-      size: "1,200 sqft",
-      area: "Downtown Dubai",
-    },
-    {
-      id: 2,
-      title: "Spacious Family Home in Dubai",
-      price: "AED 350,000/year",
-      image:
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&h=400&fit=crop",
-      beds: 3,
-      baths: 2,
-      size: "1,800 sqft",
-      area: "Dubai Marina",
-    },
-    {
-      id: 3,
-      title: "Luxury Penthouse with Views",
-      price: "AED 600,000/year",
-      image:
-        "https://images.unsplash.com/photo-1600573458265-adf1a8d8701d?w=500&h=400&fit=crop",
-      beds: 3,
-      baths: 3,
-      size: "2,500 sqft",
-      area: "Palm Jumeirah",
-    },
-    {
-      id: 4,
-      title: "Studio near Beach",
-      price: "AED 80,000/year",
-      image:
-        "https://images.unsplash.com/photo-1600576621521-40ca62278f1a?w=500&h=400&fit=crop",
-      beds: 1,
-      baths: 1,
-      size: "600 sqft",
-      area: "Jumeirah Beach",
-    },
-  ];
+  const properties = dubaiProperties;
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-red-600 to-black text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Properties in Dubai
           </h1>
-          <p className="text-lg text-blue-100">
+          <p className="text-lg text-gray-100">
             Explore our premium collection of residential properties in Dubai
           </p>
         </div>
@@ -99,11 +55,11 @@ export default function DubaiProperties() {
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div className="text-xl font-bold text-blue-600">
+                    <div className="text-xl font-bold text-red-600">
                       {property.price}
                     </div>
                   </div>
-                  <button className="w-full mt-4 px-4 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition-colors">
+                  <button className="w-full mt-4 px-4 py-2 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition-colors">
                     View Details
                   </button>
                 </div>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Modern Apartment in Downtown Dubai",
+    "price": "AED 250,000/year",
+    "image": "https://images.unsplash.com/photo-1512453150886-d6a135e9ca15?w=500&h=400&fit=crop",
+    "beds": 2,
+    "baths": 2,
+    "size": "1,200 sqft",
+    "area": "Downtown Dubai"
+  },
+  {
+    "id": 2,
+    "title": "Spacious Family Home in Dubai",
+    "price": "AED 350,000/year",
+    "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&h=400&fit=crop",
+    "beds": 3,
+    "baths": 2,
+    "size": "1,800 sqft",
+    "area": "Dubai Marina"
+  },
+  {
+    "id": 3,
+    "title": "Luxury Penthouse with Views",
+    "price": "AED 600,000/year",
+    "image": "https://images.unsplash.com/photo-1600573458265-adf1a8d8701d?w=500&h=400&fit=crop",
+    "beds": 3,
+    "baths": 3,
+    "size": "2,500 sqft",
+    "area": "Palm Jumeirah"
+  },
+  {
+    "id": 4,
+    "title": "Studio near Beach",
+    "price": "AED 80,000/year",
+    "image": "https://images.unsplash.com/photo-1600576621521-40ca62278f1a?w=500&h=400&fit=crop",
+    "beds": 1,
+    "baths": 1,
+    "size": "600 sqft",
+    "area": "Jumeirah Beach"
+  }
+]

@@ -18,7 +18,7 @@ export default function HomePage() {
           className="absolute inset-0 opacity-30"
           style={{
             backgroundImage:
-              "url('/landing page')",
+              "url('/assets/landing page.jpeg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -45,12 +45,13 @@ export default function HomePage() {
           >
             <motion.h1
               className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
               variants={fadeInUp}
               initial="initial"
               animate="animate"
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Home Sniper Real Estate
+              <span className="text-white">Home Sniper</span> <span className="text-red-600">Real Estate</span>
             </motion.h1>
             <motion.p
               className="text-xl md:text-2xl text-gray-200 mb-8"
@@ -158,7 +159,7 @@ export default function HomePage() {
               whileHover={{ scale: 1.05 }}
             >
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F46d78cab553746bf8807f6802c04725c%2F3b563ba70efa48dc8591724dcafcd2be?format=webp&width=800"
+                src="/assets/chairman.jpeg"
                 alt="Chairman - HE. Nehayan Hamad Balrakkad Al Ameri"
                 className="rounded-lg shadow-xl w-full h-auto object-cover"
               />
@@ -440,51 +441,84 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-red-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-6"
+      {/* Properties by Area */}
+      <section className="py-16 md:py-24 bg-red-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Ready to Find Your Perfect Property?
-          </motion.h2>
-          <motion.p
-            className="text-lg text-gray-100 mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Explore our comprehensive portfolio of properties and experience
-            exceptional management services.
-          </motion.p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              PROPERTIES OWNED AND <span className="text-gray-900">MANAGED</span>
+            </h2>
+            <p className="text-lg text-gray-100 max-w-2xl mx-auto">
+              Discover our extensive portfolio of properties across the UAE's most prominent cities.
+            </p>
+          </motion.div>
+
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            initial={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "0px 0px -200px 0px" }}
           >
-            <motion.div variants={slideInUp}>
-              <Link
-                to="/properties"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-red-600 font-bold rounded-lg hover:bg-gray-100 transition-colors uppercase tracking-wider"
-              >
-                Browse Properties
+            {[
+              {
+                city: "Abu Dhabi",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+                desc: "Experience luxury living in the UAE's capital with our premium properties.",
+                count: "15+ Properties",
+                link: "/properties/abu-dhabi",
+              },
+              {
+                city: "Al Ain",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+                desc: "Discover serene properties in the Garden City of the UAE.",
+                count: "12+ Properties",
+                link: "/properties/al-ain",
+              },
+              {
+                city: "Dubai",
+                image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=400&h=300&fit=crop",
+                desc: "Explore modern and iconic properties in the city of dreams.",
+                count: "20+ Properties",
+                link: "/properties/dubai",
+              },
+            ].map((area, idx) => (
+              <Link key={idx} to={area.link}>
+                <motion.div
+                  className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                >
+                  <img
+                    src={area.image}
+                    alt={`${area.city} properties`}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-6">
+                    <h3
+                      className="text-2xl font-bold text-gray-900 mb-2"
+                      style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
+                    >
+                      {area.city}
+                    </h3>
+                    <p className="text-red-600 font-semibold mb-2">{area.count}</p>
+                    <p className="text-gray-600 mb-4">{area.desc}</p>
+                    <div className="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-red-600 text-red-600 font-bold rounded-lg hover:bg-red-600 hover:text-white transition-colors uppercase tracking-wider">
+                      View Properties
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </div>
+                  </div>
+                </motion.div>
               </Link>
-            </motion.div>
-            <motion.div variants={slideInUp}>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-red-600 transition-colors uppercase tracking-wider"
-              >
-                Contact Us
-              </Link>
-            </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
