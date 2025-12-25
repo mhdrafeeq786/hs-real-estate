@@ -1,25 +1,54 @@
 # Property Data Management
 
-This project uses JSON files to manage property data, allowing you to add new properties without modifying the code.
+This project now uses **Supabase (PostgreSQL)** for property data management, providing a robust database solution with built-in REST API, Dashboard UI, and optional authentication.
 
-## How to Add New Properties
+## Database Setup
 
-### 1. Manual JSON Updates
-Property data is stored in the `client/data/` directory:
-- `abu-dhabi-properties.json` - Properties in Abu Dhabi
-- `al-ain-properties.json` - Properties in Al Ain
-- `dubai-properties.json` - Properties in Dubai
+### 1. Create Supabase Project
+1. Go to [supabase.com](https://supabase.com) and create a new project
+2. Wait for the project to be set up (this may take a few minutes)
 
-### 2. API Integration
-The server now includes API endpoints for dynamic property management:
+### 2. Configure Environment Variables
+Update your `.env` file with your Supabase credentials:
 
-#### GET Properties
+```env
+# Client-side (public)
+VITE_SUPABASE_URL=https://your-project-id.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+
+# Server-side (keep secret!)
+SUPABASE_URL=https://your-project-id.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+```
+
+### 3. Run Database Migration
+Execute the SQL migration in your Supabase dashboard:
+
+1. Go to your Supabase project dashboard
+2. Navigate to the SQL Editor
+3. Copy and paste the contents of `supabase-migration.sql`
+4. Run the migration
+
+### 4. Seed Initial Data
+Run the seed script to migrate existing JSON data to Supabase:
+
+```bash
+node scripts/seed-database.js
+```
+
+## API Endpoints
+
+The server now provides REST API endpoints powered by Supabase:
+
+### GET Properties
 ```
 GET /api/properties/:area
 ```
 Returns all properties for a specific area.
 
-#### POST New Property
+**Areas:** `dubai`, `abu-dhabi`, `al-ain`
+
+### POST New Property
 ```
 POST /api/properties/:area
 Content-Type: application/json
@@ -35,7 +64,7 @@ Content-Type: application/json
 }
 ```
 
-#### Webhook for Third-Party Updates
+### Webhook for Third-Party Updates
 ```
 POST /api/webhook/properties
 Content-Type: application/json
@@ -56,69 +85,25 @@ Content-Type: application/json
 }
 ```
 
-## Integration with Third-Party Services
+## Supabase Dashboard
 
-### Best Approaches for Adding New Areas/Properties from External Sources:
+### Managing Properties via Dashboard
+1. Go to your Supabase project dashboard
+2. Navigate to **Table Editor**
+3. Select the `properties` table
+4. Use the built-in editor to:
+   - View all properties
+   - Add new properties
+   - Edit existing properties
+   - Delete properties
+   - Filter and search
 
-### 1. **API Integration (Recommended)**
-- **Pros**: Real-time updates, automated, scalable
-- **Cons**: Requires development work
-- **Implementation**:
-  - Create scheduled jobs to fetch data from third-party APIs
-  - Use webhooks to receive real-time updates
-  - Implement authentication and rate limiting
+### Real-time Updates
+The dashboard provides real-time updates, so any changes made through the API or dashboard will be immediately visible.
 
-### 2. **Webhook Integration**
-- **Pros**: Real-time, event-driven, low latency
-- **Cons**: Requires third-party service to support webhooks
-- **Implementation**:
-  - Expose `/api/webhook/properties` endpoint
-  - Configure third-party service to send POST requests
-  - Validate incoming data and update JSON files
+## Third-Party Integration
 
-### 3. **Database Integration**
-- **Pros**: Better performance, advanced querying, relationships
-- **Cons**: More complex setup
-- **Implementation**:
-  - Add database (PostgreSQL, MongoDB, etc.)
-  - Create migration scripts
-  - Update API endpoints to use database instead of JSON files
-
-### 4. **Admin Dashboard**
-- **Pros**: User-friendly, controlled access
-- **Cons**: Additional development
-- **Implementation**:
-  - Create admin interface for property management
-  - Add authentication and authorization
-  - Allow bulk imports from CSV/Excel
-
-### 5. **Zapier/IFTTT Integration**
-- **Pros**: No-code solution, quick setup
-- **Cons**: Limited customization, potential costs
-- **Implementation**:
-  - Use Zapier to connect third-party services
-  - Set up zaps to POST data to your webhook endpoint
-  - Automate data transformation
-
-## Recommended Implementation Strategy
-
-### Phase 1: Webhook Integration (Quick Win)
-1. Set up webhook endpoint (already done)
-2. Configure third-party service to send data
-3. Add data validation and error handling
-
-### Phase 2: Admin Interface (User-Friendly)
-1. Create simple admin page for manual property entry
-2. Add bulk import functionality
-3. Implement basic authentication
-
-### Phase 3: Full API Integration (Scalable)
-1. Migrate to database
-2. Implement comprehensive API
-3. Add advanced features (search, filtering, analytics)
-
-## Example Third-Party Integration Code
-
+### API Integration
 ```javascript
 // Example: Fetching from a real estate API
 const fetchPropertiesFromAPI = async () => {
@@ -152,19 +137,35 @@ const fetchPropertiesFromAPI = async () => {
 };
 ```
 
-## Security Considerations
+### Zapier/IFTTT Integration
+Set up automated workflows to sync data from third-party services directly to your Supabase database.
 
-1. **API Keys**: Store securely, use environment variables
-2. **Rate Limiting**: Implement to prevent abuse
-3. **Data Validation**: Validate incoming data structure
-4. **Authentication**: Use JWT or API keys for webhook authentication
-5. **HTTPS**: Ensure all communications are encrypted
+## Authentication (Optional)
+
+If you want to add authentication:
+
+1. Enable authentication in your Supabase project
+2. Configure authentication providers (email, Google, etc.)
+3. Update RLS policies to restrict access as needed
+4. Add authentication to your frontend if required
+
+## Benefits of Supabase Integration
+
+- **Scalability**: Handle thousands of properties efficiently
+- **Real-time**: Live updates across all connected clients
+- **Security**: Built-in authentication and authorization
+- **Dashboard**: User-friendly interface for data management
+- **API**: Automatic REST API generation
+- **Backup**: Automatic backups and point-in-time recovery
+- **Performance**: Optimized queries with indexing
+
+## Migration from JSON Files
+
+The system has been migrated from static JSON files to a dynamic Supabase database. The frontend now fetches data via API calls, providing better performance and real-time capabilities.
 
 ## Monitoring and Maintenance
 
-1. **Logging**: Log all API calls and webhook events
-2. **Error Handling**: Implement proper error responses
-3. **Backup**: Regular backup of JSON files/database
-4. **Testing**: Test integrations thoroughly before production
-
-This setup provides flexibility for both manual updates and automated third-party integrations.
+- **Logs**: Check Supabase dashboard for API usage and errors
+- **Performance**: Monitor query performance in the dashboard
+- **Backups**: Automatic daily backups included
+- **Analytics**: Built-in analytics for database usage

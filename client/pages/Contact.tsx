@@ -52,13 +52,13 @@ export default function Contact() {
     <Layout>
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-gray-900 to-black text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Contact Us</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-brand-red">Contact Us</h1>
             <p className="text-xl text-gray-300">
               Get in touch with our team to discuss your real estate needs
             </p>
@@ -68,7 +68,7 @@ export default function Contact() {
 
       {/* Contact Information Cards */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
             variants={staggerContainer}
@@ -81,11 +81,11 @@ export default function Contact() {
               variants={slideInUp}
               whileHover={{ y: -8 }}
             >
-              <Mail className="w-8 h-8 text-red-600 mx-auto mb-4" />
+              <Mail className="w-8 h-8 text-brand-red mx-auto mb-4" />
               <h3 className="font-bold text-gray-900 mb-2">Email</h3>
               <a
                 href="mailto:info@home-sniper.com"
-                className="text-red-600 hover:text-red-700"
+                className="text-brand-red hover:opacity-90"
               >
                 info@home-sniper.com
               </a>
@@ -96,9 +96,9 @@ export default function Contact() {
               variants={slideInUp}
               whileHover={{ y: -8 }}
             >
-              <Phone className="w-8 h-8 text-red-600 mx-auto mb-4" />
+              <Phone className="w-8 h-8 text-brand-red mx-auto mb-4" />
               <h3 className="font-bold text-gray-900 mb-2">Corporate</h3>
-              <p className="text-gray-700">+971 3 7627689</p>
+              <p className="text-gray-700">+971 50 737 9111</p>
             </motion.div>
 
             <motion.div
@@ -106,7 +106,7 @@ export default function Contact() {
               variants={slideInUp}
               whileHover={{ y: -8 }}
             >
-              <MapPin className="w-8 h-8 text-red-600 mx-auto mb-4" />
+              <MapPin className="w-8 h-8 text-brand-red mx-auto mb-4" />
               <h3 className="font-bold text-gray-900 mb-2">PO Box</h3>
               <p className="text-gray-700">16356</p>
             </motion.div>
@@ -116,7 +116,7 @@ export default function Contact() {
               variants={slideInUp}
               whileHover={{ y: -8 }}
             >
-              <Clock className="w-8 h-8 text-red-600 mx-auto mb-4" />
+              <Clock className="w-8 h-8 text-brand-red mx-auto mb-4" />
               <h3 className="font-bold text-gray-900 mb-2">Hours</h3>
               <p className="text-gray-700 text-sm">Sat - Thu: 9 AM - 6 PM</p>
             </motion.div>
@@ -152,13 +152,13 @@ export default function Contact() {
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
                     Full Name
                   </label>
-                  <input
+                    <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all"
                   />
                 </motion.div>
                 <motion.div
@@ -170,13 +170,13 @@ export default function Contact() {
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
                     Email Address
                   </label>
-                  <input
+                    <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all"
                   />
                 </motion.div>
                 <motion.div
@@ -188,12 +188,12 @@ export default function Contact() {
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
                     Phone Number
                   </label>
-                  <input
+                    <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all"
                   />
                 </motion.div>
                 <motion.div
@@ -205,13 +205,13 @@ export default function Contact() {
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
                     Subject
                   </label>
-                  <input
+                    <input
                     type="text"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all"
                   />
                 </motion.div>
                 <motion.div
@@ -223,13 +223,13 @@ export default function Contact() {
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
                     Message
                   </label>
-                  <textarea
+                    <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all"
                   ></textarea>
                 </motion.div>
                 <motion.div
@@ -240,7 +240,7 @@ export default function Contact() {
                 >
                   <motion.button
                     type="submit"
-                    className="w-full px-6 py-4 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-all shadow-md uppercase tracking-wider"
+                    className="w-full px-6 py-4 bg-brand-red text-white font-semibold rounded-lg hover:opacity-90 transition-all shadow-md uppercase tracking-wider"
                     whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(220, 38, 38, 0.3)" }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -273,17 +273,18 @@ export default function Contact() {
                     className="pb-6 border-b border-gray-200 last:border-b-0 last:pb-0"
                     variants={slideInUp}
                   >
-                    <h4 className="font-bold text-red-600 mb-3 uppercase tracking-wider text-sm">
+                    <h4 className="font-bold text-brand-red mb-3 uppercase tracking-wider text-sm">
                       {office.title}
                     </h4>
                     <p className="text-gray-700 mb-1 font-medium">{office.location}</p>
                     <p className="text-gray-600 text-sm mb-3">{office.country}</p>
                     <motion.p
-                      className="text-red-600 font-semibold flex items-center gap-2"
+                      className="text-brand-red font-semibold flex items-center gap-2"
                       whileHover={{ x: 5 }}
                     >
                       <Phone className="w-4 h-4" />
-                      {office.phone}
+                      {/* {office.phone} */}
+                      +971 50 737 9111
                     </motion.p>
                   </motion.div>
                 ))}
@@ -297,9 +298,9 @@ export default function Contact() {
               >
                 <p className="text-gray-700">
                   <span className="font-bold">Website:</span>{" "}
-                  <motion.a
+                    <motion.a
                     href="https://www.home-sniper.com"
-                    className="text-red-600 hover:text-red-700 transition-colors"
+                    className="text-brand-red hover:opacity-90 transition-colors"
                     whileHover={{ textDecoration: "underline" }}
                   >
                     www.home-sniper.com

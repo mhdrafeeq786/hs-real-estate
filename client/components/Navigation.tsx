@@ -16,19 +16,18 @@ export function Navigation() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
     { href: "/properties", label: "Properties" },
     { href: "/contact", label: "Contact" },
   ];
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50 border-b-4 border-red-600">
+    <nav className="bg-white shadow-md sticky top-0 z-50 border-b-4 border-brand-red">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center gap-3">
             <Logo className="w-12 h-12" />
             <div className="hidden sm:block">
-              <div className="font-bold text-red-600 text-lg tracking-wider">
+              <div className="font-bold text-brand-red text-lg tracking-wider">
                 HOMESNIPER
               </div>
               <div className="text-xs text-gray-600 tracking-wider">
@@ -46,8 +45,8 @@ export function Navigation() {
                 className={cn(
                   "text-sm font-semibold transition-colors uppercase tracking-wider",
                   isActive(link.href)
-                    ? "text-red-600 border-b-2 border-red-600"
-                    : "text-gray-700 hover:text-red-600"
+                    ? "text-brand-red border-b-2 border-brand-red"
+                    : "text-gray-700 hover:text-brand-red"
                 )}
               >
                 {link.label}

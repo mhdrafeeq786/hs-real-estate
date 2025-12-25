@@ -1,53 +1,101 @@
 import express from 'express';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { supabase, Property } from '../lib/supabase.js';
 
 const router = express.Router();
 
 // GET /api/properties/:area - Get properties for a specific area
 router.get('/properties/:area', async (req, res) => {
   try {
+    // Check if Supabase is configured
+    if (!supabase) {
+      return res.status(503).json({
+        error: 'Database not configured',
+        message: 'Please configure Supabase environment variables'
+      });
+    }
+
     const { area } = req.params;
-    const fileName = `${area}-properties.json`;
-    const filePath = path.join(process.cwd(), 'client', 'data', fileName);
 
-    const data = await fs.readFile(filePath, 'utf8');
-    const properties = JSON.parse(data);
+    // Convert area name to city enum
+    const cityMap: { [key: string]: Property['city'] } = {
+      'dubai': 'dubai',
+      'abu-dhabi': 'abu-dhabi',
+      'al-ain': 'al-ain'
+    };
 
-    res.json(properties);
+    const city = cityMap[area];
+    if (!city) {
+      return res.status(400).json({ error: 'Invalid area' });
+    }
+
+    const { data: properties, error } = await supabase
+      .from('properties')
+      .select('*')
+      .eq('city', city)
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      throw error;
+    }
+
+    res.json(properties || []);
   } catch (error) {
-    res.status(404).json({ error: 'Area not found' });
+    console.error('Error fetching properties:', error);
+    res.status(500).json({ error: 'Failed to fetch properties' });
   }
 });
 
 // POST /api/properties/:area - Add new property to an area
 router.post('/properties/:area', async (req, res) => {
   try {
-    const { area } = req.params;
-    const newProperty = req.body;
-
-    const fileName = `${area}-properties.json`;
-    const filePath = path.join(process.cwd(), 'client', 'data', fileName);
-
-    // Read existing properties
-    let properties = [];
-    try {
-      const data = await fs.readFile(filePath, 'utf8');
-      properties = JSON.parse(data);
-    } catch (error) {
-      // File doesn't exist, start with empty array
+    // Check if Supabase is configured
+    if (!supabase) {
+      return res.status(503).json({
+        error: 'Database not configured',
+        message: 'Please configure Supabase environment variables'
+      });
     }
 
-    // Add new property with auto-incremented ID
-    const newId = properties.length > 0 ? Math.max(...properties.map(p => p.id)) + 1 : 1;
-    newProperty.id = newId;
-    properties.push(newProperty);
+    const { area } = req.params;
+    const propertyData = req.body;
 
-    // Write back to file
-    await fs.writeFile(filePath, JSON.stringify(properties, null, 2));
+    // Convert area name to city enum
+    const cityMap: { [key: string]: Property['city'] } = {
+      'dubai': 'dubai',
+      'abu-dhabi': 'abu-dhabi',
+      'al-ain': 'al-ain'
+    };
 
-    res.json({ success: true, property: newProperty });
+    const city = cityMap[area];
+    if (!city) {
+      return res.status(400).json({ error: 'Invalid area' });
+    }
+
+    // Prepare property data
+    const newProperty: Omit<Property, 'id' | 'created_at' | 'updated_at'> = {
+      title: propertyData.title,
+      price: propertyData.price,
+      image: propertyData.image,
+      beds: propertyData.beds,
+      baths: propertyData.baths,
+      size: propertyData.size,
+      area: propertyData.area,
+      city: city
+    };
+
+    const { data, error } = await supabase
+      .from('properties')
+      .insert([newProperty])
+      .select()
+      .single();
+
+    if (error) {
+      throw error;
+    }
+
+    res.json({ success: true, property: data });
   } catch (error) {
+    console.error('Error adding property:', error);
     res.status(500).json({ error: 'Failed to add property' });
   }
 });
@@ -55,28 +103,56 @@ router.post('/properties/:area', async (req, res) => {
 // POST /api/webhook/properties - Webhook endpoint for third-party updates
 router.post('/webhook/properties', async (req, res) => {
   try {
-    const { area, properties: newProperties } = req.body;
-
-    const fileName = `${area}-properties.json`;
-    const filePath = path.join(process.cwd(), 'client', 'data', fileName);
-
-    // Read existing properties
-    let existingProperties = [];
-    try {
-      const data = await fs.readFile(filePath, 'utf8');
-      existingProperties = JSON.parse(data);
-    } catch (error) {
-      // File doesn't exist
+    // Check if Supabase is configured
+    if (!supabase) {
+      return res.status(503).json({
+        error: 'Database not configured',
+        message: 'Please configure Supabase environment variables'
+      });
     }
 
-    // Merge new properties
-    const mergedProperties = [...existingProperties, ...newProperties];
+    const { area, properties: newProperties } = req.body;
 
-    // Write back to file
-    await fs.writeFile(filePath, JSON.stringify(mergedProperties, null, 2));
+    // Convert area name to city enum
+    const cityMap: { [key: string]: Property['city'] } = {
+      'dubai': 'dubai',
+      'abu-dhabi': 'abu-dhabi',
+      'al-ain': 'al-ain'
+    };
 
-    res.json({ success: true, message: `Added ${newProperties.length} properties to ${area}` });
+    const city = cityMap[area];
+    if (!city) {
+      return res.status(400).json({ error: 'Invalid area' });
+    }
+
+    // Prepare properties for insertion
+    const propertiesToInsert = newProperties.map((prop: any) => ({
+      title: prop.title,
+      price: prop.price,
+      image: prop.image,
+      beds: prop.beds,
+      baths: prop.baths,
+      size: prop.size,
+      area: prop.area,
+      city: city
+    }));
+
+    const { data, error } = await supabase
+      .from('properties')
+      .insert(propertiesToInsert)
+      .select();
+
+    if (error) {
+      throw error;
+    }
+
+    res.json({
+      success: true,
+      message: `Added ${data?.length || 0} properties to ${area}`,
+      properties: data
+    });
   } catch (error) {
+    console.error('Error updating properties via webhook:', error);
     res.status(500).json({ error: 'Failed to update properties' });
   }
 });

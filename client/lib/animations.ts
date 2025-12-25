@@ -41,6 +41,7 @@ export const staggerContainer = {
 
 export const slideInUp = {
   initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
   whileInView: { opacity: 1, y: 0 },
   transition: { duration: 0.8 },
   viewport: { once: true, margin: "0px 0px -200px 0px" },
@@ -48,6 +49,7 @@ export const slideInUp = {
 
 export const slideInLeft = {
   initial: { opacity: 0, x: -60 },
+  animate: { opacity: 1, x: 0 },
   whileInView: { opacity: 1, x: 0 },
   transition: { duration: 0.8 },
   viewport: { once: true, margin: "0px 0px -200px 0px" },
@@ -55,6 +57,7 @@ export const slideInLeft = {
 
 export const slideInRight = {
   initial: { opacity: 0, x: 60 },
+  animate: { opacity: 1, x: 0 },
   whileInView: { opacity: 1, x: 0 },
   transition: { duration: 0.8 },
   viewport: { once: true, margin: "0px 0px -200px 0px" },

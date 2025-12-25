@@ -46,14 +46,6 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/services"
-                  className="text-gray-400 hover:text-red-600"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
                   to="/properties"
                   className="text-gray-400 hover:text-red-600"
                 >
@@ -99,7 +91,7 @@ export function Footer() {
               </div>
               <div className="flex items-start gap-2">
                 <Phone className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-400">+971 3 7627689</span>
+                <span className="text-gray-400">+971 50 737 9111</span>
               </div>
             </div>
           </div>

@@ -57,6 +57,9 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Brand red used across the site (H: 0 = red). Adjust to match previous theme */
+    --brand-red: 0 78% 44%;
+    /* Why Choose Us section gradient (start -> end) */
   }
 
   .dark {
@@ -95,6 +98,7 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --brand-red: 0 78% 60%;
   }
 }
 
@@ -116,5 +120,20 @@
   code {
     overflow-x: auto;
     white-space: pre;
+  }
+}
+
+@layer utilities {
+  /* Brand background utilities for consistent themed sections */
+  .bg-brand {
+    background-color: hsl(var(--brand-red));
+  }
+
+  .bg-brand-gradient {
+    background: linear-gradient(180deg, hsl(0, 79%, 16%) 0%, rgba(0, 0, 0, 0.85) 100%);
+  }
+
+  .text-on-brand {
+    color: hsl(var(--primary-foreground));
   }
 }

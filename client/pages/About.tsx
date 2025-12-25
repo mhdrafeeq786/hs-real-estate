@@ -7,13 +7,13 @@ export default function About() {
     <Layout>
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-gray-900 to-black text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">About Us</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-brand-red">About Us</h1>
             <p className="text-xl text-gray-300">
               Learn about Home Sniper Real Estate and our commitment to excellence
             </p>
@@ -23,7 +23,7 @@ export default function About() {
 
       {/* Company Overview */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             initial={{ opacity: 0 }}
@@ -77,7 +77,7 @@ export default function About() {
 
       {/* Core Values */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
             Our <span className="text-red-600">Core Values</span>
           </h2>
@@ -108,11 +108,11 @@ export default function About() {
             ].map((value, idx) => (
               <motion.div
                 key={idx}
-                className="bg-white p-8 rounded-lg shadow-md"
+                className="bg-white p-8 rounded-lg shadow-md border border-gray-200 min-h-[160px]"
                 variants={slideInUp}
                 whileHover={{ y: -8 }}
               >
-                <h3 className="text-2xl font-bold text-red-600 mb-3">
+                <h3 className="text-2xl font-bold text-brand-red mb-3">
                   {value.title}
                 </h3>
                 <p className="text-gray-700">{value.desc}</p>
@@ -123,8 +123,8 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 md:py-24 bg-red-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 bg-brand-red text-white">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
             variants={staggerContainer}
@@ -133,10 +133,10 @@ export default function About() {
             viewport={{ once: true }}
           >
             {[
-              { number: "500+", label: "Properties" },
+              { number: "50+", label: "Properties" },
               { number: "3", label: "Major Locations" },
               { number: "2000+", label: "Satisfied Clients" },
-              { number: "15+", label: "Years Experience" },
+              { number: "5+", label: "Years Experience" },
             ].map((stat, idx) => (
               <motion.div key={idx} variants={slideInUp}>
                 <motion.div

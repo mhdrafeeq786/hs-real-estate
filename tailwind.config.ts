@@ -13,7 +13,11 @@ export default {
       },
     },
     extend: {
+      // Add a named brand color to match previous theme usage (from-brand-red, text-brand-red)
+      // This maps to the CSS variable --brand-red declared in client/global.css
+      // so designers can tweak the HSL value in one place.
       colors: {
+        "brand-red": "hsl(var(--brand-red))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

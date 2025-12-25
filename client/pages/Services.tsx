@@ -59,7 +59,7 @@ export default function Services() {
     <Layout>
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-gray-900 to-black text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export default function Services() {
 
       {/* Services Grid */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-8"
             variants={staggerContainer}
@@ -88,11 +88,11 @@ export default function Services() {
               return (
                 <motion.div
                   key={idx}
-                  className="bg-gray-50 p-8 rounded-lg shadow-md border-l-4 border-red-600"
+                  className="bg-gray-50 p-8 rounded-lg shadow-md border-l-4 border-brand-red"
                   variants={slideInUp}
                   whileHover={{ y: -8 }}
                 >
-                  <Icon className="w-12 h-12 text-red-600 mb-4" />
+                  <Icon className="w-12 h-12 text-brand-red mb-4" />
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">
                     {service.title}
                   </h3>
@@ -100,7 +100,7 @@ export default function Services() {
                   <div className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-5 h-5 text-brand-red flex-shrink-0 mt-0.5" />
                         <span className="text-gray-600">{feature}</span>
                       </div>
                     ))}
@@ -114,9 +114,9 @@ export default function Services() {
 
       {/* Benefits */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
-            Why Choose <span className="text-red-600">Our Services</span>
+            Why Choose <span className="text-brand-red">Our Services</span>
           </h2>
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
@@ -140,7 +140,7 @@ export default function Services() {
                 className="flex items-start gap-4"
                 variants={slideInUp}
               >
-                <CheckCircle2 className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
+                <CheckCircle2 className="w-6 h-6 text-brand-red flex-shrink-0 mt-1" />
                 <p className="text-lg text-gray-700">{benefit}</p>
               </motion.div>
             ))}
@@ -149,8 +149,8 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-red-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 md:py-24 bg-brand-red text-white">
+        <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -170,7 +170,7 @@ export default function Services() {
             Contact our team today to discuss how we can help with your real estate needs.
           </motion.p>
           <motion.button
-            className="px-8 py-4 bg-white text-red-600 font-bold rounded-lg hover:bg-gray-100 transition-colors uppercase tracking-wider"
+            className="px-8 py-4 bg-white text-brand-red font-bold rounded-lg hover:bg-gray-100 transition-colors uppercase tracking-wider"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

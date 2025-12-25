@@ -7,12 +7,13 @@ import {
   slideInUp,
   staggerContainer,
 } from "@/lib/animations";
+import cities from "@/data/cities";
 
 export default function HomePage() {
   return (
     <Layout>
       {/* Hero Section - Company Profile */}
-      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white overflow-hidden flex items-center">
+      <section className="relative min-h-screen bg-brand-gradient text-white overflow-hidden flex items-center">
         {/* Background image overlay */}
         <div
           className="absolute inset-0 opacity-30"
@@ -26,17 +27,17 @@ export default function HomePage() {
 
         {/* Animated background shapes */}
         <motion.div
-          className="absolute top-0 right-0 w-96 h-96 bg-red-600 rounded-full opacity-10"
+          className="absolute top-0 right-0 w-96 h-96 bg-brand-red rounded-full opacity-10"
           animate={{ y: [0, 30, 0] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-0 left-0 w-96 h-96 bg-red-600 rounded-full opacity-10"
+          className="absolute bottom-0 left-0 w-96 h-96 bg-brand-red rounded-full opacity-10"
           animate={{ y: [0, -30, 0] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-32">
+        <div className="relative max-w-7xl mx-auto  w-full py-32">
           <motion.div
             className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
@@ -51,7 +52,7 @@ export default function HomePage() {
               animate="animate"
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span className="text-white">Home Sniper</span> <span className="text-red-600">Real Estate</span>
+              <span className="text-white">Home Sniper</span> <span className="text-brand-red">Real Estate</span>
             </motion.h1>
             <motion.p
               className="text-xl md:text-2xl text-gray-200 mb-8"
@@ -72,7 +73,7 @@ export default function HomePage() {
               <motion.div variants={fadeInUp}>
                 <Link
                   to="/properties"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors shadow-lg uppercase tracking-wider"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-brand-red text-white font-bold rounded-lg hover:opacity-90 transition-colors shadow-lg uppercase tracking-wider"
                 >
                   Browse Properties
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -93,7 +94,7 @@ export default function HomePage() {
 
       {/* About Us Section */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto ">
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             initial={{ opacity: 0 }}
@@ -108,10 +109,10 @@ export default function HomePage() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                About <span className="text-red-600">Us</span>
+                About <span className="text-brand-red">Us</span>
               </h2>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                <span className="font-bold text-red-600">Home Sniper Real Estate Gen. Cont. Sole Proprietorship L.L.C</span> is a
+                <span className="font-bold text-brand-red">Home Sniper Real Estate Gen. Cont. Sole Proprietorship L.L.C</span> is a
                 leading real estate management company with a strong presence in
                 Abu Dhabi, Al Ain, and Dubai, in United Arab Emirates. We
                 specialize in managing our own extensive portfolio of properties
@@ -137,13 +138,13 @@ export default function HomePage() {
                 className="rounded-lg shadow-xl"
               />
             </motion.div>
-          </motion.div>
+          </motion.div> 
         </div>
       </section>
 
       {/* Chairman's Message */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto ">
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             initial={{ opacity: 0 }}
@@ -171,7 +172,7 @@ export default function HomePage() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Chairman's <span className="text-red-600">Message</span>
+                Chairman's <span className="text-brand-red">Message</span>
               </h2>
               <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
                 <p>
@@ -197,7 +198,7 @@ export default function HomePage() {
 
       {/* Mission & Vision */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto ">
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -205,7 +206,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Mission & <span className="text-red-600">Vision</span>
+            Mission & <span className="text-brand-red">Vision</span>
           </motion.h2>
 
           <motion.div
@@ -216,7 +217,7 @@ export default function HomePage() {
           >
             {/* Mission */}
             <motion.div
-              className="bg-red-600 text-white p-8 md:p-10 rounded-lg shadow-lg"
+              className="bg-brand-red text-white p-8 md:p-10 rounded-lg shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -249,7 +250,7 @@ export default function HomePage() {
 
       {/* Services We Offer */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto ">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -258,7 +259,7 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Service <span className="text-red-600">We Offer</span>
+              Service <span className="text-brand-red">We Offer</span>
             </h2>
           </motion.div>
 
@@ -305,7 +306,7 @@ export default function HomePage() {
                     className="mb-4"
                     whileHover={{ rotate: 10, scale: 1.1 }}
                   >
-                    <Icon className="w-12 h-12 text-red-600" />
+                    <Icon className="w-12 h-12 text-brand-red" />
                   </motion.div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">
                     {service.title}
@@ -320,7 +321,7 @@ export default function HomePage() {
 
       {/* Benefits of Leasing */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto ">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -329,7 +330,7 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Benefits of <span className="text-red-600">Leasing with Us</span>
+              Benefits of <span className="text-brand-red">Leasing with Us</span>
             </h2>
           </motion.div>
 
@@ -354,7 +355,7 @@ export default function HomePage() {
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 viewport={{ once: true, margin: "0px 0px -200px 0px" }}
               >
-                <CheckCircle2 className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
+                <CheckCircle2 className="w-6 h-6 text-brand-red flex-shrink-0 mt-1" />
                 <p className="text-lg text-gray-700 font-medium">{benefit}</p>
               </motion.div>
             ))}
@@ -363,8 +364,8 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-900 to-black text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 bg-gray-800 text-white">
+        <div className="max-w-7xl mx-auto ">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -373,7 +374,7 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Why <span className="text-red-600">Choose Us</span>?
+              Why <span className="text-brand-red">Choose Us</span>?
             </h2>
             <motion.p
               className="text-xl text-gray-300 max-w-2xl mx-auto mb-4"
@@ -412,38 +413,26 @@ export default function HomePage() {
             ].map((item, idx) => (
               <motion.div
                 key={idx}
-                className="bg-gray-800 p-6 rounded-lg border border-red-600"
+                className="bg-gray-900 p-6 rounded-lg border border-brand-red"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 viewport={{ once: true, margin: "0px 0px -200px 0px" }}
                 whileHover={{ y: -8 }}
               >
-                <h3 className="text-xl font-bold text-red-600 mb-3">
+                <h3 className="text-xl font-bold text-brand-red mb-3">
                   {item.title}
                 </h3>
                 <p className="text-gray-300">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
-
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-lg text-gray-300">
-              Our commitment to delivering exceptional living experiences makes us the perfect choice for your home away from home.
-            </p>
-          </motion.div>
         </div>
       </section>
 
       {/* Properties by Area */}
-      <section className="py-16 md:py-24 bg-red-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 bg-brand-red">
+        <div className="max-w-7xl mx-auto ">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -460,65 +449,52 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch"
             initial={{ opacity: 1 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "0px 0px -200px 0px" }}
           >
-            {[
-              {
-                city: "Abu Dhabi",
-                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
-                desc: "Experience luxury living in the UAE's capital with our premium properties.",
-                count: "15+ Properties",
-                link: "/properties/abu-dhabi",
-              },
-              {
-                city: "Al Ain",
-                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
-                desc: "Discover serene properties in the Garden City of the UAE.",
-                count: "12+ Properties",
-                link: "/properties/al-ain",
-              },
-              {
-                city: "Dubai",
-                image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=400&h=300&fit=crop",
-                desc: "Explore modern and iconic properties in the city of dreams.",
-                count: "20+ Properties",
-                link: "/properties/dubai",
-              },
-            ].map((area, idx) => (
-              <Link key={idx} to={area.link}>
-                <motion.div
-                  className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  viewport={{ once: true, margin: "0px 0px -200px 0px" }}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                >
-                  <img
-                    src={area.image}
-                    alt={`${area.city} properties`}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3
-                      className="text-2xl font-bold text-gray-900 mb-2"
-                      style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
-                    >
-                      {area.city}
-                    </h3>
-                    <p className="text-red-600 font-semibold mb-2">{area.count}</p>
-                    <p className="text-gray-600 mb-4">{area.desc}</p>
-                    <div className="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-red-600 text-red-600 font-bold rounded-lg hover:bg-red-600 hover:text-white transition-colors uppercase tracking-wider">
-                      View Properties
-                      <ArrowRight className="ml-2 w-4 h-4" />
+            {cities.slice(0, 3).map((area, idx) => {
+              const firstImage = area.properties?.[0]?.image || "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop";
+              const countText = `${area.properties?.length ?? 0}+ Properties`;
+              const link = `/properties/${area.name.toLowerCase().replace(/\s+/g, "-")}`;
+              return (
+                <Link key={area.name} to={link}>
+                  <motion.div
+                    className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer flex flex-col h-full min-h-[420px]"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                    viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                  >
+                    <img
+                      src={firstImage}
+                      alt={`${area.name} properties`}
+                      className="w-full h-48 object-cover flex-shrink-0"
+                    />
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="flex items-start justify-between mb-2">
+                        <h3
+                          className="text-2xl font-bold text-gray-900"
+                          style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
+                        >
+                          {area.name}
+                        </h3>
+                        <p className="text-brand-red font-semibold ml-4 whitespace-nowrap">{countText}</p>
+                      </div>
+                      <p className="text-gray-600 mb-4">{area.description}</p>
+                      <div className="mt-auto">
+                        <div className="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-brand-red text-brand-red font-bold rounded-lg hover:bg-brand-red hover:text-white transition-colors uppercase tracking-wider">
+                          View Properties
+                          <ArrowRight className="ml-2 w-4 h-4" />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              </Link>
-            ))}
+                  </motion.div>
+                </Link>
+              );
+            })}
           </motion.div>
         </div>
       </section>
