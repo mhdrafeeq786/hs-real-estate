@@ -1,11 +1,33 @@
 import { Layout } from "@/components/Layout";
 import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { slideInUp, staggerContainer } from "@/lib/animations";
 
 import cities from "@/data/cities";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 
 export default function Properties() {
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeImages, setActiveImages] = useState<string[]>([]);
+  const [activeTitle, setActiveTitle] = useState<string>("");
+
 
   const getTypeColor = (type: string) => {
     switch (type) {
@@ -74,7 +96,7 @@ export default function Properties() {
               {city.properties.map((property) => (
                 <motion.div
                   key={property.id}
-                  className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all"
+                  className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all flex flex-col h-full"
                   initial={{ opacity: 0, y: 60 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -93,7 +115,7 @@ export default function Properties() {
                   </div>
 
                   {/* Property Info */}
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col flex-1">
                     <div className="flex items-start justify-between mb-3">
                       <h3 className="text-lg font-bold text-gray-900 flex-1">
                         {property.name}
@@ -108,9 +130,20 @@ export default function Properties() {
                       <p className="text-sm">{property.location}</p>
                     </div>
 
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {property.description}
-                    </p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{property.description}</p>
+                    <div className="mt-auto flex items-center justify-end">
+                      <button
+                        onClick={() => {
+                          const imgs = (property as any).images ?? [property.image];
+                          setActiveImages(imgs);
+                          setActiveTitle(property.name || "");
+                          setIsOpen(true);
+                        }}
+                        className="inline-flex items-center px-4 py-2 bg-brand-red text-white font-semibold rounded hover:opacity-90 transition-colors"
+                      >
+                        View More
+                      </button>
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -118,6 +151,36 @@ export default function Properties() {
           </div>
         </section>
       ))}
+
+      {/* Image modal used for any property from the list */}
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="max-w-4xl w-full">
+          <DialogHeader>
+            <DialogTitle>{activeTitle}</DialogTitle>
+            <DialogDescription>Property images</DialogDescription>
+          </DialogHeader>
+
+          <div className="relative mt-4">
+            <Carousel>
+              <CarouselContent>
+                {activeImages.map((src, idx) => (
+                  <CarouselItem key={idx}>
+                    <img src={src} alt={`${activeTitle} ${idx + 1}`} className="w-full h-80 object-cover rounded" />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="!left-4 !z-20 bg-white/90 hover:bg-white cursor-pointer shadow-lg text-gray-800" />
+              <CarouselNext className="!right-4 !z-20 bg-white/90 hover:bg-white cursor-pointer shadow-lg text-gray-800" />
+            </Carousel>
+          </div>
+
+          <div className="mt-6 text-right">
+            <DialogClose asChild>
+              <Button variant="outline">Close</Button>
+            </DialogClose>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Summary Section */}
       <section className="py-12 md:py-24 bg-brand-gradient text-white">

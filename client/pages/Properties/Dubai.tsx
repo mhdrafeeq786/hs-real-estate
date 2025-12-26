@@ -2,6 +2,22 @@ import { Layout } from "@/components/Layout";
 import { MapPin } from "lucide-react";
 import { useState, useEffect } from "react";
 import cities from "@/data/cities";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 
 interface Property {
   id: number;
@@ -16,6 +32,9 @@ export default function DubaiProperties() {
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeImages, setActiveImages] = useState<string[]>([]);
+  const [activeTitle, setActiveTitle] = useState<string>("");
 
   useEffect(() => {
     const city = cities.find((c) => c.name === "Dubai");
@@ -97,7 +116,7 @@ export default function DubaiProperties() {
                   className="w-full h-48 object-cover flex-shrink-0"
                 />
                 <div className="p-6 flex flex-col flex-1">
-                  <div className="flex-1">
+                  <div className="flex-1 flex flex-col">
                     <div className="flex items-center text-sm text-gray-500 mb-2">
                       <MapPin className="w-4 h-4 mr-1" />
                       {property.area}
@@ -106,21 +125,59 @@ export default function DubaiProperties() {
                       {property.title}
                     </h3>
                     <p className="text-sm text-gray-600 mb-4">{property.description}</p>
-                    <div className="flex items-center justify-between">
-                      <div className="text-xl font-bold text-brand-red">
-                        {property.price}
+                    <div className="mt-auto flex items-center justify-between">
+                      <div className="text-xl font-bold text-brand-red">{property.price}</div>
+                      <div>
+                        <button
+                          onClick={() => {
+                            const imgs = (property as any).images ?? [property.image];
+                            setActiveImages(imgs);
+                            setActiveTitle(property.title);
+                            setIsOpen(true);
+                          }}
+                          className="inline-flex items-center px-4 py-2 bg-brand-red text-white font-semibold rounded hover:opacity-90 transition-colors"
+                        >
+                          View Details
+                        </button>
                       </div>
                     </div>
                   </div>
-                  <button className="w-full mt-4 px-4 py-2 bg-brand-red text-white font-semibold rounded hover:opacity-90 transition-colors">
-                    View Details
-                  </button>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Image modal */}
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="max-w-4xl w-full">
+          <DialogHeader>
+            <DialogTitle>{activeTitle}</DialogTitle>
+            <DialogDescription>Property images</DialogDescription>
+          </DialogHeader>
+
+          <div className="relative mt-4">
+            <Carousel>
+              <CarouselContent>
+                {activeImages.map((src, idx) => (
+                  <CarouselItem key={idx}>
+                    <img src={src} alt={`${activeTitle} ${idx + 1}`} className="w-full h-80 object-cover rounded" />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="!left-4 !z-20 bg-white/90 hover:bg-white cursor-pointer shadow-lg text-gray-800" />
+              <CarouselNext className="!right-4 !z-20 bg-white/90 hover:bg-white cursor-pointer shadow-lg text-gray-800" />
+            </Carousel>
+          </div>
+
+          <div className="mt-6 text-right">
+            <DialogClose asChild>
+              <Button variant="outline">Close</Button>
+            </DialogClose>
+          </div>
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 }
