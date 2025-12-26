@@ -432,7 +432,7 @@ export default function HomePage() {
 
       {/* Properties by Area */}
       <section className="py-16 md:py-24 bg-brand-red">
-        <div className="max-w-7xl mx-auto ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}

@@ -25,13 +25,13 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center gap-3">
-            <Logo className="w-12 h-12" />
-            <div className="hidden sm:block">
-              <div className="font-bold text-brand-red text-lg tracking-wider">
-                HOMESNIPER
+            <Logo className="w-10 h-10 sm:w-12 sm:h-12" />
+            <div className="flex flex-col">
+              <div className="font-bold text-brand-red text-sm sm:text-lg tracking-wider leading-tight">
+                Home Sniper
               </div>
-              <div className="text-xs text-gray-600 tracking-wider">
-                REAL ESTATE
+              <div className="text-[10px] sm:text-xs text-gray-600 tracking-wider">
+                Real Estate
               </div>
             </div>
           </Link>
