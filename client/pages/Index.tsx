@@ -37,7 +37,7 @@ export default function HomePage() {
           transition={{ duration: 8, repeat: Infinity }}
         />
 
-        <div className="relative max-w-7xl mx-auto  w-full py-32">
+        <div className="relative max-w-7xl mx-auto w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
@@ -94,7 +94,7 @@ export default function HomePage() {
 
       {/* About Us Section */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             initial={{ opacity: 0 }}
@@ -144,7 +144,7 @@ export default function HomePage() {
 
       {/* Chairman's Message */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             initial={{ opacity: 0 }}
@@ -198,7 +198,7 @@ export default function HomePage() {
 
       {/* Mission & Vision */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -250,7 +250,7 @@ export default function HomePage() {
 
       {/* Services We Offer */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -321,7 +321,7 @@ export default function HomePage() {
 
       {/* Benefits of Leasing */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -365,7 +365,7 @@ export default function HomePage() {
 
       {/* Why Choose Us */}
       <section className="py-16 md:py-24 bg-gray-800 text-white">
-        <div className="max-w-7xl mx-auto ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}

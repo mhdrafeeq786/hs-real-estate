@@ -25,8 +25,8 @@ export default function Properties() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-900 to-black text-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 bg-gradient-to-br from-gray-900 to-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -46,9 +46,9 @@ export default function Properties() {
       {cities.map((city, cityIdx) => (
         <section
           key={city.name}
-          className={`py-16 md:py-24 ${cityIdx % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
+          className={`py-12 md:py-24 ${cityIdx % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
         >
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* City Header */}
             <motion.div
               className="mb-16"
@@ -120,8 +120,8 @@ export default function Properties() {
       ))}
 
       {/* Summary Section */}
-      <section className="py-16 md:py-24 bg-brand-gradient text-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 bg-brand-gradient text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"
             initial={{ opacity: 0, y: 20 }}

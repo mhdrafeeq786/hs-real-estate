@@ -51,8 +51,8 @@ export default function Contact() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-900 to-black text-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 bg-gradient-to-br from-gray-900 to-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,8 +67,8 @@ export default function Contact() {
       </section>
 
       {/* Contact Information Cards */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
             variants={staggerContainer}
@@ -124,7 +124,7 @@ export default function Contact() {
 
           {/* Contact Form & Additional Info */}
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 sm:px-0"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}

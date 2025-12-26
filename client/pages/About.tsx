@@ -6,8 +6,8 @@ export default function About() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-900 to-black text-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 bg-gradient-to-br from-gray-900 to-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -22,8 +22,8 @@ export default function About() {
       </section>
 
       {/* Company Overview */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             initial={{ opacity: 0 }}
@@ -76,8 +76,8 @@ export default function About() {
       </section>
 
       {/* Core Values */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
             Our <span className="text-red-600">Core Values</span>
           </h2>
@@ -123,8 +123,8 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 md:py-24 bg-brand-red text-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 bg-brand-red text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
             variants={staggerContainer}

@@ -67,8 +67,8 @@ export default function AbuDhabiProperties() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-black text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-black text-white py-12 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-brand-red">
             Properties in Abu Dhabi
           </h1>
@@ -79,8 +79,8 @@ export default function AbuDhabiProperties() {
       </section>
 
       {/* Properties Grid */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <p className="text-gray-600 text-lg">
               Found {properties.length} properties available for leasing
