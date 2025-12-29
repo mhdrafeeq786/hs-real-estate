@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import propertiesRouter from "./routes/properties";
+import { handleSendEmail } from "./routes/send-email";
 
 export function createServer() {
   const app = express();
@@ -19,6 +20,9 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+
+  // Send email from contact form (server-side, keep SMTP credentials private)
+  app.post('/api/send-email', handleSendEmail);
 
   // Properties API routes
   app.use('/api', propertiesRouter);

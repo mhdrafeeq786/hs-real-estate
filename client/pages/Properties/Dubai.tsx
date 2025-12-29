@@ -26,6 +26,7 @@ interface Property {
   image: string;
   description: string;
   area: string;
+  type?: string;
 }
 
 export default function DubaiProperties() {
@@ -47,6 +48,7 @@ export default function DubaiProperties() {
           image: p.image,
             description: p.description || "",
           area: p.location,
+          type: (p as any).type || undefined,
         }))
       );
       setError(null);
@@ -110,20 +112,35 @@ export default function DubaiProperties() {
                 key={property.id}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col h-full"
               >
-                <img
-                  src={property.image}
-                  alt={property.title}
-                  className="w-full h-48 object-cover flex-shrink-0"
-                />
+                <div className="w-full flex-shrink-0" style={{ aspectRatio: '3/4', backgroundColor: '#f8fafc' }}>
+                  <img src={property.image} alt={property.title} className="w-full h-full object-contain" />
+                </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex-1 flex flex-col">
                     <div className="flex items-center text-sm text-gray-500 mb-2">
                       <MapPin className="w-4 h-4 mr-1" />
                       {property.area}
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">
-                      {property.title}
-                    </h3>
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-lg font-bold text-gray-900">
+                        {property.title}
+                      </h3>
+                      {property.type && (
+                        <span
+                          className={`text-sm font-semibold px-3 py-1 rounded-full whitespace-nowrap ${
+                            property.type.toLowerCase().includes('residential')
+                              ? 'bg-blue-100 text-blue-800'
+                              : property.type.toLowerCase().includes('commercial')
+                              ? 'bg-green-100 text-green-800'
+                              : property.type.toLowerCase().includes('industrial')
+                              ? 'bg-gray-100 text-gray-800'
+                              : 'bg-purple-100 text-purple-800'
+                          }`}
+                        >
+                          {property.type}
+                        </span>
+                      )}
+                    </div>
                     <p className="text-sm text-gray-600 mb-4">{property.description}</p>
                     <div className="mt-auto flex items-center justify-between">
                       <div className="text-xl font-bold text-brand-red">{property.price}</div>
@@ -151,18 +168,20 @@ export default function DubaiProperties() {
 
       {/* Image modal */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-4xl w-full">
+        <DialogContent className="max-w-md w-full h-[85vh] max-h-[90vh] overflow-hidden">
           <DialogHeader>
             <DialogTitle>{activeTitle}</DialogTitle>
             <DialogDescription>Property images</DialogDescription>
           </DialogHeader>
 
-          <div className="relative mt-4">
+          <div className="relative mt-4 flex items-center justify-center h-full">
             <Carousel>
               <CarouselContent>
                 {activeImages.map((src, idx) => (
                   <CarouselItem key={idx}>
-                    <img src={src} alt={`${activeTitle} ${idx + 1}`} className="w-full h-80 object-cover rounded" />
+                    <div style={{ aspectRatio: '3/4', width: '100%', maxWidth: 420, margin: '0 auto', backgroundColor: '#f8fafc' }}>
+                      <img src={src} alt={`${activeTitle} ${idx + 1}`} className="w-full h-full object-contain rounded" />
+                    </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>

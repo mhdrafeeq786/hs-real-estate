@@ -1,10 +1,10 @@
 const propertyImages = {
   // Use local assets from public/assets for faster loading and consistent branding
   tower: "/assets/landing page.jpeg",
-  apartments: "/assets/dubai - muhaisina.jpeg",
+  apartments: "/assets/dubai - muhaisina (2).jpeg",
   villa: "/assets/dubai - al warqa (2).jpeg",
-  commercial: "/assets/dubai - silicon.jpeg",
-  industrial: "/assets/dubai - al varsan.jpeg",
+  commercial: "/assets/dubai - silicon (2).jpeg",
+  industrial: "/assets/dubai - al varsan (2).jpeg",
 };
 
 export const cities = [
@@ -20,7 +20,7 @@ export const cities = [
         type: "Residential",
         description:
           "located in the prime location in Raha-beach area Offering stunning views and top-notch amenities. Available with modern finishes, sea views, and access to amenities like pools, gym, children play area etc.",
-        image: propertyImages.tower,
+        image: '/assets/Al Ameerah Tower,.jpeg',
       },
       {
         id: "ad-2",
@@ -28,7 +28,7 @@ export const cities = [
         location: "Khalifa city apartments",
         type: "Residential",
         description: "Located in Khalifa city apartments including 2 and 3bedroom options with al amenities",
-        image: propertyImages.apartments,
+        image: '/assets/Khalifa City Apartments.jpeg',
       },
       {
         id: "ad-3",
@@ -37,7 +37,7 @@ export const cities = [
         type: "Commercial",
         description:
           "Located in Ma'mourah Al Nahayan, offering a wide range of office and commercial spaces in the heart of Abu Dhabi city, catering to diverse business needs. includes Luxury offices-working offices, commercial spaces and showrooms",
-        image: propertyImages.commercial,
+        image: '/assets/Al Saada Tower.jpeg',
       },
       {
         id: "ad-4",
@@ -46,7 +46,7 @@ export const cities = [
         type: "Industrial",
         description:
           "Located in Musaffah M44, thriving industrial and commercial Hub offering small and large ware houses for logistics and distribution. Retail spaces for business looking to establish a presence in the area. Labor accommodation options for workers and labors.",
-        image: propertyImages.industrial,
+        image: '/assets/dhhg building.jpeg',
       },
       {
         id: "ad-5",
@@ -54,7 +54,7 @@ export const cities = [
         location: "Madinat Riyad",
         type: "Commercial",
         description: "Located in Madinat Riyad offering Retail units and showrooms",
-        image: propertyImages.commercial,
+        image:'/assets/Madinat Riyad HS Buildin.jpeg',
       },
       {
         id: "ad-6",
@@ -63,7 +63,7 @@ export const cities = [
         type: "Industrial",
         description:
           "Located in Musaffah M44, thriving industrial and commercial Hub offering small and large ware houses for logistics and distribution. Retail spaces for business looking to establish a presence in the area. Labor accommodation options for workers and labors and show rooms for varies leading brands.",
-        image: propertyImages.industrial,
+        image: '/assets/Musaffah M44 HS Buildings.jpeg',
       },
       {
         id: "ad-7",
@@ -72,7 +72,7 @@ export const cities = [
         type: "Industrial",
         description:
           "Located in ICAD-3 upcoming industrial hub offering various properties for lease like large and small ware houses, Industrial Lands, Land for marine activities sharing with sea, like yacht stations, Drydocking and maintenance Etc.",
-        image: propertyImages.industrial,
+        image: '/assets/HS-Investments.jpeg',
       },
     ],
   },
@@ -86,7 +86,7 @@ export const cities = [
         location: "Al Ain, industrial Area near to Bawadi mall",
         type: "Industrial",
         description: "offering Retail units, ware houses.",
-        image: propertyImages.industrial,
+        image: '/assets/3A,3B,3C,3D.jpeg',
       },
       {
         id: "aa-2",
@@ -94,7 +94,7 @@ export const cities = [
         location: "industrial area",
         type: "Industrial",
         description: "with Labor Accommodation and ware houses",
-        image: propertyImages.industrial,
+        image: '/assets/HS Building (No9).jpeg',
       },
       {
         id: "aa-3",
@@ -102,7 +102,7 @@ export const cities = [
         location: "industrial area",
         type: "Industrial",
         description: "with Labor Accommodation",
-        image: propertyImages.industrial,
+        image: '/assets/HS Building (No7).jpeg',
       },
       {
         id: "aa-4",
@@ -110,7 +110,7 @@ export const cities = [
         location: "industrial area",
         type: "Industrial",
         description: "with Labor Accommodation, Ware houses, showrooms and retail units",
-        image: propertyImages.industrial,
+        image: '/assets/HS Building (No17A).jpeg',
       },
       {
         id: "aa-5",
@@ -118,7 +118,7 @@ export const cities = [
         location: "industrial area",
         type: "Industrial",
         description: "with Labor Accommodation.",
-        image: propertyImages.industrial,
+        image: '/assets/HS Building (No25C).jpeg',
       },
       {
         id: "aa-6",
@@ -126,7 +126,7 @@ export const cities = [
         location: "Al Ain, Al Saniya",
         type: "Mixed-Use",
         description: "with Offices, Accommodation and retail units.",
-        image: propertyImages.commercial,
+        image: '/assets/Sheikh Hamad Building.jpeg',
       },
       {
         id: "aa-7",
@@ -134,7 +134,7 @@ export const cities = [
         location: "close to AL Jimi Mall",
         type: "Residential",
         description: "includes staff and family accommodations",
-        image: propertyImages.villa,
+        image: '/assets/Al Jimi Villas (No89,115,117,119).jpeg',
       },
       {
         id: "aa-8",
@@ -142,7 +142,7 @@ export const cities = [
         location: "close to AL Jimi Mall",
         type: "Residential",
         description: "includes staff and family accommodations",
-        image: propertyImages.villa,
+        image: '/assets/Al Jimi Villas (No121,123,125,127,129).jpeg',
       },
       {
         id: "aa-9",
@@ -150,7 +150,7 @@ export const cities = [
         location: "close to AL Jimi Mall",
         type: "Residential",
         description: "includes staff and family accommodations",
-        image: propertyImages.villa,
+        image: '/assets/Awad Al Kuwaiti Villa (No118).jpeg',
       },
       {
         id: "aa-10",
@@ -158,7 +158,7 @@ export const cities = [
         location: "town center",
         type: "Residential",
         description: "includes staff and family accommodations",
-        image: propertyImages.villa,
+        image: '/assets/Falah Al Otaibi Villa (No48,50).jpeg',
       },
       {
         id: "aa-11",
@@ -166,7 +166,7 @@ export const cities = [
         location: "Oud AL Thoba Town Center",
         type: "Residential",
         description: "includes staff and family accommodations",
-        image: propertyImages.villa,
+        image: '/assets/Nehayan bin Hamad Villa (No36).jpeg',
       },
       {
         id: "aa-12",
@@ -174,7 +174,7 @@ export const cities = [
         location: "AL Amerah",
         type: "Commercial",
         description: "includes retail units",
-        image: propertyImages.commercial,
+        image: '/assets/Al Amerah Complex (No58).jpeg',
       },
     ],
   },
@@ -188,7 +188,7 @@ export const cities = [
         location: "Al Muhaisna Dubai",
         type: "Residential",
         description: "includes residential flats with G+4 floors",
-        image: "/assets/dubai - muhaisina.jpeg",
+        image: propertyImages.apartments,
       },
       {
         id: "db-2",
@@ -196,7 +196,7 @@ export const cities = [
         location: "AL Warqa-1 Dubai",
         type: "Mixed-Use",
         description: "includes Residential apartments and Retail units with G+6+Roof",
-        image: "/assets/dubai - al warqa.jpeg",
+        image: "/assets/dubai - al warqa (3).jpeg",
       },
       {
         id: "db-3",
@@ -204,7 +204,7 @@ export const cities = [
         location: "Al Warqa -1 Dubai",
         type: "Residential",
         description: "includes residential apartments G+6+Roof Floors",
-        image: "/assets/dubai - al warqa (2).jpeg",
+        image: "/assets/dubai - al warqa (4).jpeg",
       },
       {
         id: "db-4",
@@ -212,7 +212,7 @@ export const cities = [
         location: "Al Warsan- Dubai Al Warsan-4",
         type: "Residential",
         description: "includes residential apartments G+4 Floors",
-        image: "/assets/dubai - al varsan.jpeg",
+        image: propertyImages.industrial,
       },
       {
         id: "db-5",
@@ -220,7 +220,7 @@ export const cities = [
         location: "Dubai Silicon Oasis",
         type: "Commercial",
         description: "includes Commercial offices and Retail Units.G+8 Floors",
-        image: "/assets/dubai - silicon.jpeg",
+        image: propertyImages.commercial,
       },
     ],
   },

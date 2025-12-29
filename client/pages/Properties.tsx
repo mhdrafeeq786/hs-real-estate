@@ -55,7 +55,7 @@ export default function Properties() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-brand-red">
-              Properties Owned and Managed
+              HS Properties
             </h1>
             <p className="text-xl text-gray-300">
               Explore our comprehensive portfolio across Abu Dhabi, Al Ain, and Dubai
@@ -154,18 +154,20 @@ export default function Properties() {
 
       {/* Image modal used for any property from the list */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-4xl w-full">
+        <DialogContent className="max-w-md w-full h-[85vh] max-h-[90vh] overflow-hidden">
           <DialogHeader>
             <DialogTitle>{activeTitle}</DialogTitle>
             <DialogDescription>Property images</DialogDescription>
           </DialogHeader>
 
-          <div className="relative mt-4">
+          <div className="relative mt-4 flex items-center justify-center h-full">
             <Carousel>
               <CarouselContent>
                 {activeImages.map((src, idx) => (
                   <CarouselItem key={idx}>
-                    <img src={src} alt={`${activeTitle} ${idx + 1}`} className="w-full h-80 object-cover rounded" />
+                    <div style={{ aspectRatio: '3/4', width: '100%', maxWidth: 420, margin: '0 auto', backgroundColor: '#f8fafc' }}>
+                      <img src={src} alt={`${activeTitle} ${idx + 1}`} className="w-full h-full object-contain rounded" />
+                    </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>

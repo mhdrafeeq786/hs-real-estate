@@ -66,8 +66,8 @@ export default function About() {
               whileHover={{ scale: 1.05 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=500&fit=crop"
-                alt="Office building"
+                src="/assets/dubai - al varsan.jpeg"
+                alt="Dubai - Al Varsan"
                 className="rounded-lg shadow-xl"
               />
             </motion.div>

@@ -1,6 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Logo } from "@/components/Logo";
 import { ArrowRight, CheckCircle2, Home, Building2, Wrench, Users } from "lucide-react";
 import {
   fadeInUp,
@@ -44,6 +45,12 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
+            <div
+              className="mx-auto mb-4 w-24 h-24 flex items-center justify-center"
+              style={{ backgroundColor: 'rgba(255,255,255,0.95)', borderRadius: '50%', boxShadow: '0 20px 50px rgba(0,0,0,0.28)'}}
+            >
+              <Logo className="w-16 h-16" />
+            </div>
             <motion.h1
               className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
               style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
@@ -52,7 +59,8 @@ export default function HomePage() {
               animate="animate"
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span className="text-white">Home Sniper</span> <span className="text-brand-red">Real Estate</span>
+              <span className="text-white">H O M E &nbsp; S N I P E R</span>
+              <span className="text-brand-red block" style={{ fontSize: '40px' }}>R E A L &nbsp; E S T A T E</span>
             </motion.h1>
             <motion.p
               className="text-xl md:text-2xl text-gray-200 mb-8"
@@ -133,8 +141,8 @@ export default function HomePage() {
               whileHover={{ scale: 1.05 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=500&fit=crop"
-                alt="Modern real estate"
+                src="/assets/aboutUs.jpeg"
+                alt="Dubai - Silicon"
                 className="rounded-lg shadow-xl"
               />
             </motion.div>
@@ -441,7 +449,7 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              PROPERTIES OWNED AND <span className="text-gray-900">MANAGED</span>
+              HS <span className="text-gray-900">PROPERTIES</span>
             </h2>
             <p className="text-lg text-gray-100 max-w-2xl mx-auto">
               Discover our extensive portfolio of properties across the UAE's most prominent cities.
@@ -456,7 +464,6 @@ export default function HomePage() {
           >
             {cities.slice(0, 3).map((area, idx) => {
               const firstImage = area.properties?.[0]?.image || "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop";
-              const countText = `${area.properties?.length ?? 0}+ Properties`;
               const link = `/properties/${area.name.toLowerCase().replace(/\s+/g, "-")}`;
               return (
                 <Link key={area.name} to={link}>
@@ -468,20 +475,17 @@ export default function HomePage() {
                     viewport={{ once: true, margin: "0px 0px -200px 0px" }}
                     whileHover={{ y: -8, scale: 1.02 }}
                   >
-                    <img
-                      src={firstImage}
-                      alt={`${area.name} properties`}
-                      className="w-full h-48 object-cover flex-shrink-0"
-                    />
+                    <div className="w-full flex-shrink-0" style={{ aspectRatio: '3/4', backgroundColor: '#f8fafc' }}>
+                      <img src={firstImage} alt={`${area.name} properties`} className="w-full h-full object-contain" />
+                    </div>
                     <div className="p-6 flex flex-col flex-1">
-                      <div className="flex items-start justify-between mb-2">
+                      <div className="flex items-start mb-2">
                         <h3
                           className="text-2xl font-bold text-gray-900"
                           style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
                         >
                           {area.name}
                         </h3>
-                        <p className="text-brand-red font-semibold ml-4 whitespace-nowrap">{countText}</p>
                       </div>
                       <p className="text-gray-600 mb-4">{area.description}</p>
                       <div className="mt-auto">
@@ -496,6 +500,12 @@ export default function HomePage() {
               );
             })}
           </motion.div>
+
+          <div className="mt-6 text-center">
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+              For enquiries about these properties, please contact our Abu Dhabi (AUH) office at +971 50 591 1125.
+            </p>
+          </div>
         </div>
       </section>
     </Layout>

@@ -1,6 +1,8 @@
 import { Layout } from "@/components/Layout";
+import { Logo } from "@/components/Logo";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { toast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
 import { slideInUp, staggerContainer } from "@/lib/animations";
 
@@ -12,24 +14,114 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [isSending, setIsSending] = useState(false);
+  const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // clear field error on change
+    setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    alert("Thank you for your message. We'll get back to you soon!");
+  const validateField = (name: string, value: string) => {
+    switch (name) {
+      case "name":
+        if (!value.trim()) return "Full name is required.";
+        return undefined;
+      case "email": {
+        if (!value.trim()) return "Email is required.";
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!re.test(value)) return "Enter a valid email address.";
+        return undefined;
+      }
+      case "phone": {
+        if (!value.trim()) return "Phone number is required.";
+        const cleaned = value.replace(/[\s-()]/g, "");
+        if (cleaned.length < 7) return "Enter a valid phone number.";
+        return undefined;
+      }
+      default:
+        return undefined;
+    }
   };
+
+  const validateAll = () => {
+    const next: typeof errors = {};
+    next.name = validateField("name", formData.name);
+    next.email = validateField("email", formData.email);
+    next.phone = validateField("phone", formData.phone);
+    setErrors(next);
+    return !next.name && !next.email && !next.phone;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validateAll()) {
+      toast({ title: "Validation", description: "Please fix the errors in the form.", variant: "destructive" });
+      return;
+    }
+
+    setIsSending(true);
+    const sendAttempt = async () => {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        })
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body?.error || 'Send failed');
+      }
+      return res;
+    };
+
+    // retry/backoff: 3 attempts with exponential backoff
+    const maxAttempts = 3;
+    let attempt = 0;
+    let success = false;
+    let lastErr: any = null;
+    while (attempt < maxAttempts && !success) {
+      try {
+        attempt += 1;
+        if (attempt > 1) {
+          const wait = 500 * Math.pow(2, attempt - 2); // 500ms, 1000ms, ...
+          await new Promise((r) => setTimeout(r, wait));
+          toast({ title: `Retrying (${attempt}/${maxAttempts})`, description: 'Attempting to resend message...' });
+        }
+        await sendAttempt();
+        success = true;
+      } catch (err) {
+        lastErr = err;
+        console.error('Send attempt failed', attempt, err);
+      }
+    }
+
+    if (!success) {
+      console.error('All send attempts failed', lastErr);
+      toast({ title: 'Send failed', description: 'Unable to send message. Please try again later.', variant: 'destructive' });
+      setIsSending(false);
+      return;
+    }
+
+    toast({ title: 'Message sent', description: 'Thank you — we received your message and will reply soon.' });
+    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    setIsSending(false);
+  };
+
+
 
   const offices = [
     {
-      title: "Corporate Office",
+      title: "Al Ain Office",
       location: "HS Building, Al Noud, Al Ain Abu Dhabi",
       country: "United Arab Emirates",
       phone: "+971 3 7627689",
@@ -38,7 +130,7 @@ export default function Contact() {
       title: "Abu Dhabi",
       location: "Al Saada Tower, M1, Al Nahayan Camp, Al Mamoura",
       country: "Abu Dhabi, United Arab Emirates",
-      phone: "+971 50 464 5262",
+      phone: "+971 50 591 1125",
     },
     {
       title: "Dubai",
@@ -58,7 +150,12 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-brand-red">Contact Us</h1>
+            <div className="flex items-center gap-6 mb-4">
+              <h1 className="text-5xl md:text-6xl font-bold text-brand-red">Contact Us</h1>
+              <div className="w-16 h-16 flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.95)', borderRadius: '50%', boxShadow: '0 20px 50px rgba(0,0,0,0.28)'}}>
+                <Logo className="w-10 h-10" />
+              </div>
+            </div>
             <p className="text-xl text-gray-300">
               Get in touch with our team to discuss your real estate needs
             </p>
@@ -142,7 +239,7 @@ export default function Contact() {
               <p className="text-gray-600 mb-8 text-lg">
                 We would be happy to hear from you.
               </p>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -150,16 +247,18 @@ export default function Contact() {
                   viewport={{ once: true }}
                 >
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Full Name
+                    Full Name <span className="text-brand-red">*</span>
                   </label>
                     <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
+                    onBlur={(e) => setErrors((p) => ({ ...p, name: validateField("name", e.target.value) }))}
                     required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all"
                   />
+                  {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name}</p>}
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -168,16 +267,18 @@ export default function Contact() {
                   viewport={{ once: true }}
                 >
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Email Address
+                    Email Address <span className="text-brand-red">*</span>
                   </label>
                     <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    onBlur={(e) => setErrors((p) => ({ ...p, email: validateField("email", e.target.value) }))}
                     required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all"
                   />
+                  {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email}</p>}
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -186,15 +287,18 @@ export default function Contact() {
                   viewport={{ once: true }}
                 >
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Phone Number
+                    Phone Number <span className="text-brand-red">*</span>
                   </label>
                     <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
+                    onBlur={(e) => setErrors((p) => ({ ...p, phone: validateField("phone", e.target.value) }))}
+                    required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all"
                   />
+                  {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone}</p>}
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -240,11 +344,23 @@ export default function Contact() {
                 >
                   <motion.button
                     type="submit"
-                    className="w-full px-6 py-4 bg-brand-red text-white font-semibold rounded-lg hover:opacity-90 transition-all shadow-md uppercase tracking-wider"
-                    whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(220, 38, 38, 0.3)" }}
-                    whileTap={{ scale: 0.98 }}
+                    disabled={isSending}
+                    className={`w-full px-6 py-4 bg-brand-red text-white font-semibold rounded-lg transition-all shadow-md uppercase tracking-wider ${isSending ? 'opacity-70 pointer-events-none' : 'hover:opacity-90'}`}
+                    whileHover={!isSending ? { scale: 1.02, boxShadow: "0 10px 25px rgba(220, 38, 38, 0.3)" } : undefined}
+                    whileTap={!isSending ? { scale: 0.98 } : undefined}
+                    aria-busy={isSending}
                   >
-                    Send Message
+                    {isSending ? (
+                      <span className="inline-flex items-center">
+                        <svg className="animate-spin h-4 w-4 mr-3 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                        </svg>
+                        Sending...
+                      </span>
+                    ) : (
+                      'Send Message'
+                    )}
                   </motion.button>
                 </motion.div>
               </form>
