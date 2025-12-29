@@ -40,15 +40,6 @@ export const cities = [
         image: '/assets/Al Saada Tower.jpeg',
       },
       {
-        id: "ad-4",
-        name: "DHHG Building",
-        location: "Musaffah M44",
-        type: "Industrial",
-        description:
-          "Located in Musaffah M44, thriving industrial and commercial Hub offering small and large ware houses for logistics and distribution. Retail spaces for business looking to establish a presence in the area. Labor accommodation options for workers and labors.",
-        image: '/assets/dhhg building.jpeg',
-      },
-      {
         id: "ad-5",
         name: "HS Building",
         location: "Madinat Riyad",
@@ -110,7 +101,7 @@ export const cities = [
         location: "industrial area",
         type: "Industrial",
         description: "with Labor Accommodation, Ware houses, showrooms and retail units",
-        image: '/assets/HS Building (No17A).jpeg',
+        image: '/assets/HS Building (No9).jpeg',
       },
       {
         id: "aa-5",
@@ -126,7 +117,7 @@ export const cities = [
         location: "Al Ain, Al Saniya",
         type: "Mixed-Use",
         description: "with Offices, Accommodation and retail units.",
-        image: '/assets/Sheikh Hamad Building.jpeg',
+        image: '/assets/Sheikh Hamad Building (2).jpeg',
       },
       {
         id: "aa-7",
