@@ -179,9 +179,9 @@ export default function AbuDhabiProperties() {
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                <div className="mt-6 text-center">
-                  <p className="text-xl text-white/90 max-w-2xl mx-auto">
-                    For enquiries about these properties, please contact our Abu Dhabi (AUH) office at +971 50 591 1125.
+                <div className="text-center">
+                  <p className="text-xl text-white/90 mx-auto">
+                    For enquiries about these properties, please contact us on +971 50 737 9111.
                   </p>
                 </div>
                 </motion.div>
