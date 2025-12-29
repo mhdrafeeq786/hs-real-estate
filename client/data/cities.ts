@@ -112,7 +112,7 @@ export const cities = [
         image: '/assets/HS Building (No25C).jpeg',
       },
       {
-        id: "aa-6",
+        id: "aa-6", 
         name: "Sheikh Hamad Building",
         location: "Al Ain, Al Saniya",
         type: "Mixed-Use",
