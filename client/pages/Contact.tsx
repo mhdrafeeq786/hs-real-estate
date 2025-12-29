@@ -153,7 +153,7 @@ export default function Contact() {
             <div className="flex items-center gap-6 mb-4">
               <h1 className="text-5xl md:text-6xl font-bold text-brand-red">Contact Us</h1>
               <div className="w-16 h-16 flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.95)', borderRadius: '50%', boxShadow: '0 20px 50px rgba(0,0,0,0.28)'}}>
-                <Logo className="w-10 h-10" />
+                <Logo className="w-17 h-17" />
               </div>
             </div>
             <p className="text-xl text-gray-300">

@@ -16,7 +16,7 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Logo className="w-10 h-10" />
+              <Logo className="w-12 h-11 bg-white" />
               <div>
                 <div className="text-lg font-bold text-red-600">HOMESNIPER</div>
                 <div className="text-xs text-gray-400">REAL ESTATE</div>
