@@ -20,7 +20,7 @@ export default function HomePage() {
           className="absolute inset-0 opacity-30"
           style={{
             backgroundImage:
-              "url('/assets/landing page.jpeg')",
+              "url('/assets/landing new.jpeg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -49,7 +49,7 @@ export default function HomePage() {
               className="mx-auto mb-4 w-24 h-24 flex items-center justify-center"
               style={{ backgroundColor: 'rgba(255,255,255,0.95)', borderRadius: '50%', boxShadow: '0 20px 50px rgba(0,0,0,0.28)'}}
             >
-              <Logo className="w-16 h-16" />
+              <Logo className="w-24 h-24" />
             </div>
             <motion.h1
               className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
@@ -59,8 +59,8 @@ export default function HomePage() {
               animate="animate"
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <span className="text-white">H O M E &nbsp; S N I P E R</span>
-              <span className="text-brand-red block" style={{ fontSize: '40px' }}>R E A L &nbsp; E S T A T E</span>
+              <span className="text-brand-red">H O M E</span> &nbsp; <span className="text-black">S N I P E R</span>
+              <span className="text-white block" style={{ fontSize: '40px' }}>R E A L &nbsp; E S T A T E</span>
             </motion.h1>
             <motion.p
               className="text-xl md:text-2xl text-gray-200 mb-8"
@@ -141,7 +141,7 @@ export default function HomePage() {
               whileHover={{ scale: 1.05 }}
             >
               <img
-                src="/assets/aboutUs.jpeg"
+                src="/assets/aboutUsNew.jpeg"
                 alt="Dubai - Silicon"
                 className="rounded-lg shadow-xl"
               />
@@ -476,7 +476,7 @@ export default function HomePage() {
                     whileHover={{ y: -8, scale: 1.02 }}
                   >
                     <div className="w-full flex-shrink-0" style={{ aspectRatio: '3/4', backgroundColor: '#f8fafc' }}>
-                      <img src={firstImage} alt={`${area.name} properties`} className="w-full h-full object-contain" />
+                      <img src={firstImage} alt={`${area.name} properties`} className="w-full h-full object-cover object-center rounded-t-lg" />
                     </div>
                     <div className="p-6 flex flex-col flex-1">
                       <div className="flex items-start mb-2">

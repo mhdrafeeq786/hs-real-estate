@@ -104,12 +104,12 @@ export default function Properties() {
                   whileHover={{ y: -8 }}
                 >
                   {/* Property Image */}
-                  <div className="relative h-48 overflow-hidden bg-gray-200">
+                  <div className="w-full flex-shrink-0" style={{ aspectRatio: '3/4', backgroundColor: '#f8fafc' }}>
                     <motion.img
                       src={property.image}
                       alt={property.name}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.1 }}
+                      className="w-full h-full object-cover object-center rounded-t-lg"
+                      whileHover={{ scale: 1.03 }}
                       transition={{ duration: 0.3 }}
                     />
                   </div>
@@ -185,7 +185,7 @@ export default function Properties() {
       </Dialog>
 
       {/* Summary Section */}
-      <section className="py-12 md:py-24 bg-brand-gradient text-white">
+      <section className="py-12 bg-brand-red text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"
@@ -194,32 +194,11 @@ export default function Properties() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Comprehensive Portfolio
-            </h2>
-            <motion.div
-              className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-2xl mx-auto mt-12"
-              variants={staggerContainer}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-            >
-              <motion.div variants={slideInUp}>
-                <div className="text-4xl font-bold mb-2">50+</div>
-                <p className="text-red-100">Properties</p>
-              </motion.div>
-              <motion.div variants={slideInUp}>
-                <div className="text-4xl font-bold mb-2">3</div>
-                <p className="text-red-100">Major Cities</p>
-              </motion.div>
-              <motion.div variants={slideInUp}>
-                <div className="text-4xl font-bold mb-2">100%</div>
-                <p className="text-red-100">Owned & Managed</p>
-              </motion.div>
-            </motion.div>
-            <p className="text-lg text-red-100 mt-12 max-w-2xl mx-auto">
-              From residential apartments and luxury villas to commercial offices and industrial facilities, we maintain the highest standards across our entire portfolio.
+          <div className="mt-6 text-center">
+            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+              For enquiries about these properties, please contact our Abu Dhabi (AUH) office at +971 50 591 1125.
             </p>
+          </div>
           </motion.div>
         </div>
       </section>

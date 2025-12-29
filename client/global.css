@@ -130,7 +130,7 @@
   }
 
   .bg-brand-gradient {
-    background: linear-gradient(180deg, hsl(0, 79%, 16%) 0%, rgba(0, 0, 0, 0.85) 100%);
+      background: linear-gradient(180deg, hsl(0deg 12.49% 54.11%) 0%, rgb(0 0 0 / 85%) 100%);
   }
 
   .text-on-brand {

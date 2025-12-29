@@ -1,6 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { MapPin } from "lucide-react";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import cities from "@/data/cities";
 import {
   Dialog,
@@ -115,7 +116,7 @@ export default function AbuDhabiProperties() {
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col h-full"
               >
                 <div className="w-full flex-shrink-0" style={{ aspectRatio: '3/4', backgroundColor: '#f8fafc' }}>
-                  <img src={property.image} alt={property.title} className="w-full h-full object-contain" />
+                  <img src={property.image} alt={property.title} className="w-full h-full object-cover object-center rounded-t-lg" />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex-1 flex flex-col">
@@ -167,6 +168,25 @@ export default function AbuDhabiProperties() {
           </div>
         </div>
       </section>
+
+            {/* Summary Section */}
+            <section className="py-12 bg-brand-red text-white">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                <div className="mt-6 text-center">
+                  <p className="text-xl text-white/90 max-w-2xl mx-auto">
+                    For enquiries about these properties, please contact our Abu Dhabi (AUH) office at +971 50 591 1125.
+                  </p>
+                </div>
+                </motion.div>
+              </div>
+            </section>
 
       {/* Image modal */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>

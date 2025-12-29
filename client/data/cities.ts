@@ -71,6 +71,14 @@ export const cities = [
     name: "Al Ain",
     description: "Eastern Region- Emirate of Abu Dhabi",
     properties: [
+            {
+        id: "aa-2",
+        name: "HS Building (No:9)",
+        location: "industrial area",
+        type: "Industrial",
+        description: "with Labor Accommodation and ware houses",
+        image: '/assets/HS Building (No9).jpeg',
+      },
       {
         id: "aa-1",
         name: "HS Buildings (3A,3B,3C,3D)",
@@ -78,14 +86,6 @@ export const cities = [
         type: "Industrial",
         description: "offering Retail units, ware houses.",
         image: '/assets/3A,3B,3C,3D.jpeg',
-      },
-      {
-        id: "aa-2",
-        name: "HS Building (No:9)",
-        location: "industrial area",
-        type: "Industrial",
-        description: "with Labor Accommodation and ware houses",
-        image: '/assets/HS Building (No9).jpeg',
       },
       {
         id: "aa-3",
@@ -173,39 +173,7 @@ export const cities = [
     name: "Dubai",
     description: "Dubai [ logo NR ] & fotos",
     properties: [
-      {
-        id: "db-1",
-        name: "NR Building",
-        location: "Al Muhaisna Dubai",
-        type: "Residential",
-        description: "includes residential flats with G+4 floors",
-        image: propertyImages.apartments,
-      },
-      {
-        id: "db-2",
-        name: "NR Building",
-        location: "AL Warqa-1 Dubai",
-        type: "Mixed-Use",
-        description: "includes Residential apartments and Retail units with G+6+Roof",
-        image: "/assets/dubai - al warqa (3).jpeg",
-      },
-      {
-        id: "db-3",
-        name: "NR Building",
-        location: "Al Warqa -1 Dubai",
-        type: "Residential",
-        description: "includes residential apartments G+6+Roof Floors",
-        image: "/assets/dubai - al warqa (4).jpeg",
-      },
-      {
-        id: "db-4",
-        name: "NR Building",
-        location: "Al Warsan- Dubai Al Warsan-4",
-        type: "Residential",
-        description: "includes residential apartments G+4 Floors",
-        image: propertyImages.industrial,
-      },
-      {
+            {
         id: "db-5",
         name: "The ICON Tower",
         location: "Dubai Silicon Oasis",
@@ -213,6 +181,38 @@ export const cities = [
         description: "includes Commercial offices and Retail Units.G+8 Floors",
         image: propertyImages.commercial,
       },
+      {
+        id: "db-3",
+        name: "NR-1 Building",
+        location: "Al Warqa -1 Dubai",
+        type: "Residential",
+        description: "includes residential apartments G+6+Roof Floors",
+        image: "/assets/dubai - al warqa (4).jpeg",
+      },
+            {
+        id: "db-2",
+        name: "NR-2 Building",
+        location: "AL Warqa-1 Dubai",
+        type: "Mixed-Use",
+        description: "includes Residential apartments and Retail units with G+6+Roof",
+        image: "/assets/dubai - al warqa (3).jpeg",
+      },
+      {
+        id: "db-1",
+        name: "NR-3 Building",
+        location: "Al Muhaisna Dubai",
+        type: "Residential",
+        description: "includes residential flats with G+4 floors",
+        image: propertyImages.apartments,
+      },
+      {
+        id: "db-4",
+        name: "NR-4 Building",
+        location: "Al Warsan- Dubai Al Warsan-4",
+        type: "Residential",
+        description: "includes residential apartments G+4 Floors",
+        image: propertyImages.industrial,
+      }
     ],
   },
 ];
