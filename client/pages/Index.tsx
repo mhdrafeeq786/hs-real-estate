@@ -88,7 +88,7 @@ export default function HomePage() {
                     to="/properties"
                     className="inline-flex items-center justify-center px-6 py-3 bg-brand-red text-white font-semibold rounded-lg hover:opacity-95 transition-colors shadow-lg uppercase tracking-wide"
                   >
-                    Explore Listings
+                    Explore Properties
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
 
