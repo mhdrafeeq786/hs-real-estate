@@ -15,16 +15,18 @@ export default function HomePage() {
     <Layout>
       {/* Hero Section - Company Profile */}
       <section className="relative min-h-screen bg-brand-gradient text-white overflow-hidden flex items-center">
-        {/* Background image overlay */}
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              "url('/assets/landing new.jpeg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+        {/* Background image + colored blur overlay */}
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-0 bg-center bg-cover transform scale-105"
+            style={{
+              backgroundImage: "url('/assets/landing new.jpeg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-[rgba(196,23,31,0.18)] to-black/30 backdrop-blur-sm" />
+        </div>
 
         {/* Animated background shapes */}
         <motion.div
@@ -40,62 +42,74 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center max-w-3xl mx-auto"
+            className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div
-              className="mx-auto mb-4 w-24 h-24 flex items-center justify-center"
-              style={{ backgroundColor: 'rgba(255,255,255,0.95)', borderRadius: '50%', boxShadow: '0 20px 50px rgba(0,0,0,0.28)'}}
-            >
-              <Logo className="w-24 h-24" />
+            {/* Left-aligned content */}
+            <div className="w-full md:w-1/2 mt-4">
+              <motion.div
+                className="text-left bg-gradient-to-br"
+                style={{ textShadow: '0 10px 30px rgba(0,0,0,0.65)', WebkitTextStroke: '0.5px rgba(0,0,0,0.12)' }}
+                variants={staggerContainer}
+                initial="initial"
+                animate="animate"
+              >
+                <motion.h1
+                  className="text-4xl md:text-6xl font-extrabold mb-3 leading-tight"
+                  style={{ textShadow: 'rgb(0 0 0 / 90%) 0px 8px 28px' }}
+                  variants={fadeInUp}
+                  initial="initial"
+                  animate="animate"
+                  transition={{ duration: 0.6, delay: 0.15 }}
+                >
+                  <span className="text-brand-red">HOME</span>
+                  <span className="mx-2 text-black">SNIPER</span>
+                </motion.h1>
+
+                <motion.div className="mb-4" variants={fadeInUp}>
+                  <span className="inline-block text-sm md:text-base px-3 py-1 bg-white/10 rounded-full text-white/90 font-semibold" style={{ textShadow: '0 4px 14px rgba(0,0,0,0.6)' }}>Trusted since 2005</span>
+                </motion.div>
+
+                <motion.p
+                  className="text-lg md:text-xl text-gray-100 mb-6 max-w-xl"
+                  style={{ textShadow: 'rgb(189 0 0) 0px 6px 20px' }}
+                  variants={fadeInUp}
+                  initial="initial"
+                  animate="animate"
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  Expert property management and leasing across Abu Dhabi, Al Ain and Dubai. Lease directly from owners — no middlemen.
+                </motion.p>
+
+                <motion.div className="flex flex-col sm:flex-row gap-4 mb-6" variants={fadeInUp}>
+                  <Link
+                    to="/properties"
+                    className="inline-flex items-center justify-center px-6 py-3 bg-brand-red text-white font-semibold rounded-lg hover:opacity-95 transition-colors shadow-lg uppercase tracking-wide"
+                  >
+                    Explore Listings
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-colors uppercase tracking-wide"
+                  >
+                    Get In Touch
+                  </Link>
+                </motion.div>
+              </motion.div>
+
             </div>
-            <motion.h1
-              className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
-              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
-              variants={fadeInUp}
-              initial="initial"
-              animate="animate"
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <span className="text-brand-red">H O M E</span> &nbsp; <span className="text-black">S N I P E R</span>
-              <span className="text-white block" style={{ fontSize: '40px' }}>R E A L &nbsp; E S T A T E</span>
-            </motion.h1>
-            <motion.p
-              className="text-xl md:text-2xl text-gray-200 mb-8"
-              variants={fadeInUp}
-              initial="initial"
-              animate="animate"
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              A leading real estate management company with a strong presence in
-              Abu Dhabi, Al Ain, and Dubai, United Arab Emirates.
-            </motion.p>
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              variants={staggerContainer}
-              initial="initial"
-              animate="animate"
-            >
-              <motion.div variants={fadeInUp}>
-                <Link
-                  to="/properties"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-brand-red text-white font-bold rounded-lg hover:opacity-90 transition-colors shadow-lg uppercase tracking-wider"
-                >
-                  Browse Properties
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </motion.div>
-              <motion.div variants={fadeInUp}>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-gray-900 transition-colors uppercase tracking-wider"
-                >
-                  Contact Us
-                </Link>
-              </motion.div>
-            </motion.div>
+
+            {/* Right-side hero image accent */}
+            <div className="hidden md:block md:w-1/2">
+              <div className="w-full h-80 rounded-xl overflow-hidden shadow-2xl border border-white/10">
+                <img src="/assets/landing new1.jpeg" alt="Hero accent" className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700" />
+                <div className="absolute -mt-20 ml-6 bg-white/5 px-4 py-2 rounded-full text-white text-sm font-semibold">Featured: Downtown View</div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -500,12 +514,25 @@ export default function HomePage() {
               );
             })}
           </motion.div>
+        </div>
+      </section>
 
+            {/* Summary Section */}
+      <section className="pb-12 bg-brand-red text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
           <div className="text-center">
             <p className="text-xl text-white/90 mx-auto">
               For enquiries about these properties, please contact us on +971 50 737 9111.
             </p>
           </div>
+          </motion.div>
         </div>
       </section>
     </Layout>

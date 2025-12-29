@@ -66,7 +66,7 @@ export default function About() {
               whileHover={{ scale: 1.05 }}
             >
               <img
-                src="/assets/dubai - al varsan.jpeg"
+                src="/assets/aboutUsNew.jpeg"
                 alt="Dubai - Al Varsan"
                 className="rounded-lg shadow-xl"
               />
@@ -122,38 +122,25 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-12 md:py-24 bg-brand-red text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {[
-              { number: "50+", label: "Properties" },
-              { number: "3", label: "Major Locations" },
-              { number: "2000+", label: "Satisfied Clients" },
-              { number: "5+", label: "Years Experience" },
-            ].map((stat, idx) => (
-              <motion.div key={idx} variants={slideInUp}>
+
+            {/* Summary Section */}
+            <section className="py-12 bg-brand-red text-white">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
-                  className="text-4xl md:text-5xl font-bold mb-2"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  {stat.number}
+                <div className="text-center">
+                  <p className="text-xl text-white/90 mx-auto">
+                    For enquiries about these properties, please contact us on +971 50 737 9111.
+                  </p>
+                </div>
                 </motion.div>
-                <p className="text-lg">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+              </div>
+            </section>
     </Layout>
   );
 }
