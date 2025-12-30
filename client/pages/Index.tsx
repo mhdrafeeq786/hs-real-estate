@@ -45,7 +45,7 @@ export default function HomePage() {
                 animate="animate"
               >
                 <motion.h1
-                  className="text-5xl md:text-7xl font-black mb-3 leading-tight tracking-wider"
+                  className="text-4xl md:text-6xl font-black mb-3 leading-tight tracking-wider whitespace-nowrap"
                   style={{ 
                     textShadow: '2px 2px 0px rgba(0,0,0,0.2), 4px 4px 0px rgba(0,0,0,0.15), 6px 6px 0px rgba(0,0,0,0.1)',
                     letterSpacing: '0.15em'
@@ -60,13 +60,13 @@ export default function HomePage() {
                 </motion.h1>
 
                 {/* Logo for mobile - just below HOME SNIPER */}
-                {/* <div className="flex md:hidden justify-center my-8">
+                <div className="flex md:hidden justify-center my-8">
                   <img 
                     src="/assets/logo 3d new.PNG" 
                     alt="Home Sniper Logo" 
                     className="w-48 h-48 sm:w-64 sm:h-64 drop-shadow-2xl object-contain"
                   />
-                </div> */}
+                </div>                
 
                 <motion.div className="mb-4" variants={fadeInUp}>
                   <span className="inline-block text-sm md:text-base px-3 py-1 bg-white/10 rounded-full text-white/90 font-semibold" style={{ textShadow: '0 4px 14px rgba(0,0,0,0.6)' }}>Trusted since 1999</span>
