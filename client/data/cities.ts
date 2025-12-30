@@ -72,12 +72,20 @@ export const cities = [
     description: "Eastern Region- Emirate of Abu Dhabi",
     properties: [
             {
+        id: "aa-4",
+        name: "HS Building (No:17A)",
+        location: "industrial area",
+        type: "Industrial",
+        description: "with Labor Accommodation, Ware houses, showrooms and retail units",
+        image: '/assets/HS Building (No9).jpeg',
+      },
+            {
         id: "aa-2",
         name: "HS Building (No:9)",
         location: "industrial area",
         type: "Industrial",
         description: "with Labor Accommodation and ware houses",
-        image: '/assets/HS Building (No9).jpeg',
+        image: '/assets/hs 9.jpeg',
       },
       {
         id: "aa-1",
@@ -94,14 +102,6 @@ export const cities = [
         type: "Industrial",
         description: "with Labor Accommodation",
         image: '/assets/HS Building (No7).jpeg',
-      },
-      {
-        id: "aa-4",
-        name: "HS Building (No:17A)",
-        location: "industrial area",
-        type: "Industrial",
-        description: "with Labor Accommodation, Ware houses, showrooms and retail units",
-        image: '/assets/HS Building (No9).jpeg',
       },
       {
         id: "aa-5",

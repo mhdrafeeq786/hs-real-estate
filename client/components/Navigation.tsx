@@ -22,16 +22,16 @@ export function Navigation() {
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50 border-b-4 border-brand-red">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '90rem' }}>
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center gap-3">
             <Logo className="w-10 h-10 sm:w-12 sm:h-12" />
             <div className="flex flex-col">
-              <div className="font-bold text-brand-red text-sm sm:text-lg tracking-wider leading-tight">
-                Home Sniper
+              <div className="font-bold text-sm sm:text-lg tracking-wider leading-tight">
+                <span className="text-brand-red">H O M E</span> &nbsp;<span className="text-black">S N I P E R</span>
               </div>
-              <div className="text-[10px] sm:text-xs text-gray-600 tracking-wider">
-                Real Estate
+              <div className="text-[10px] sm:text-xs text-gray-600 tracking-wider font-bold">
+                R E A L &nbsp; E S T A T E
               </div>
             </div>
           </Link>

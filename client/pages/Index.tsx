@@ -15,34 +15,22 @@ export default function HomePage() {
     <Layout>
       {/* Hero Section - Company Profile */}
       <section className="relative min-h-screen bg-brand-gradient text-white overflow-hidden flex items-center">
-        {/* Background image + colored blur overlay */}
+        {/* Background image */}
         <div className="absolute inset-0">
           <div
-            className="absolute inset-0 bg-center bg-cover transform scale-105"
+            className="absolute inset-0 bg-center bg-cover"
             style={{
               backgroundImage: "url('/assets/landing new.jpeg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-[rgba(196,23,31,0.18)] to-black/30 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-[rgba(196,23,31,0.45)] to-black/75" />
         </div>
 
-        {/* Animated background shapes */}
-        <motion.div
-          className="absolute top-0 right-0 w-96 h-96 bg-brand-red rounded-full opacity-10"
-          animate={{ y: [0, 30, 0] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-0 left-0 w-96 h-96 bg-brand-red rounded-full opacity-10"
-          animate={{ y: [0, -30, 0] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-
-        <div className="relative max-w-7xl mx-auto w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="relative w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6 lg:px-16">
           <motion.div
-            className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-8"
+            className="flex flex-col md:flex-row items-start justify-between gap-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -57,19 +45,31 @@ export default function HomePage() {
                 animate="animate"
               >
                 <motion.h1
-                  className="text-4xl md:text-6xl font-extrabold mb-3 leading-tight"
-                  style={{ textShadow: 'rgb(0 0 0 / 90%) 0px 8px 28px' }}
+                  className="text-5xl md:text-7xl font-black mb-3 leading-tight tracking-wider"
+                  style={{ 
+                    textShadow: '2px 2px 0px rgba(0,0,0,0.2), 4px 4px 0px rgba(0,0,0,0.15), 6px 6px 0px rgba(0,0,0,0.1)',
+                    letterSpacing: '0.15em'
+                  }}
                   variants={fadeInUp}
                   initial="initial"
                   animate="animate"
                   transition={{ duration: 0.6, delay: 0.15 }}
                 >
-                  <span className="text-brand-red">HOME</span>
-                  <span className="mx-2 text-black">SNIPER</span>
+                  <span className="text-brand-red" style={{ textShadow: '2px 2px 0px rgba(139,0,0,0.3), 4px 4px 0px rgba(100,0,0,0.2), 6px 6px 0px rgba(50,0,0,0.1)' }}>HOME</span>
+                  <span className="mx-2 text-black" style={{ textShadow: '2px 2px 0px rgba(0,0,0,0.3), 4px 4px 0px rgba(0,0,0,0.2), 6px 6px 0px rgba(0,0,0,0.15)' }}>SNIPER</span>
                 </motion.h1>
 
+                {/* Logo for mobile - just below HOME SNIPER */}
+                {/* <div className="flex md:hidden justify-center my-8">
+                  <img 
+                    src="/assets/logo 3d new.PNG" 
+                    alt="Home Sniper Logo" 
+                    className="w-48 h-48 sm:w-64 sm:h-64 drop-shadow-2xl object-contain"
+                  />
+                </div> */}
+
                 <motion.div className="mb-4" variants={fadeInUp}>
-                  <span className="inline-block text-sm md:text-base px-3 py-1 bg-white/10 rounded-full text-white/90 font-semibold" style={{ textShadow: '0 4px 14px rgba(0,0,0,0.6)' }}>Trusted since 2005</span>
+                  <span className="inline-block text-sm md:text-base px-3 py-1 bg-white/10 rounded-full text-white/90 font-semibold" style={{ textShadow: '0 4px 14px rgba(0,0,0,0.6)' }}>Trusted since 1999</span>
                 </motion.div>
 
                 <motion.p
@@ -103,13 +103,15 @@ export default function HomePage() {
 
             </div>
 
-            {/* Right-side hero image accent */}
-            <div className="hidden md:block md:w-1/2">
-              <div className="w-full h-80 rounded-xl overflow-hidden shadow-2xl border border-white/10">
-                <img src="/assets/landing new1.jpeg" alt="Hero accent" className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700" />
-                <div className="absolute -mt-20 ml-6 bg-white/5 px-4 py-2 rounded-full text-white text-sm font-semibold">Featured: Downtown View</div>
-              </div>
+            {/* Company Logo - Right Side (Desktop only) */}
+            <div className="hidden md:flex items-start justify-center w-1/2 -mt-8">
+              <img 
+                src="/assets/logo 3d new.PNG" 
+                alt="Home Sniper Logo" 
+                className="w-80 h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] drop-shadow-2xl object-contain"
+              />
             </div>
+
           </motion.div>
         </div>
       </section>
