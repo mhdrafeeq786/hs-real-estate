@@ -215,7 +215,7 @@ export default function Contact() {
             >
               <Clock className="w-8 h-8 text-brand-red mx-auto mb-4" />
               <h3 className="font-bold text-gray-900 mb-2">Hours</h3>
-              <p className="text-gray-700 text-sm">Sat - Thu: 9 AM - 6 PM</p>
+              <p className="text-gray-700 text-sm">Mon - Fri: 9 AM - 6 PM</p>
             </motion.div>
           </motion.div>
 
